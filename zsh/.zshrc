@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="eastwood"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 
 # Set list of themes to pick from when loading at random
@@ -74,7 +74,9 @@ ENABLE_CORRECTION="true"
 plugins=(
   git
   poetry
-  )
+  zsh-syntax-highlighting 
+  zsh-autosuggestions
+)
 prompt_dir() {
   prompt_segment blue $CURRENT_FG '%c'
 }
@@ -108,6 +110,9 @@ source $ZSH/oh-my-zsh.sh
 
 
 
+
+
+
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh  # This loads NVM
 
 export PATH=$HOME/.local/bin:$PATH
@@ -124,3 +129,15 @@ source $HOME/.profile
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 function gig() { curl -sLw n https://www.toptal.com/developers/gitignore/api/$@ ;}
 source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+if [ -x "$(command -v colorls)" ]; then
+    alias ls="colorls"
+    alias la="colorls -al"
+fi
+
+if [ -x "$(command -v exa)" ]; then
+    alias ls="exa"
+    alias la="exa --long --all --group"
+fi
+
+

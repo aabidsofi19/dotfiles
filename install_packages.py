@@ -74,9 +74,15 @@ def install_packages(packages):
         with suppress():
             sp.run(["sudo", "apt-get", "install", p, "-y"])
 
+def install_zsh_plugins() :
+    home = os.environ.get("HOME")
+    if not os.path.exists(home+"/.oh-my-zsh") :
+        install_oh_my_zsh()
+    sp.run(["sh","./install-zsh-plugins.sh"])
+
 
 def install_common_deps():
-    deps = ["neofetch", "ripgrep", "wget","tmux"]
+    deps = ["neofetch", "ripgrep", "wget","tmux","exa"]
     install_packages(deps)
 
     if not is_installed("cargo"):
@@ -92,7 +98,9 @@ def install_common_deps():
     
     with suppress() :
         install_oh_my_zsh()
-
+    
+    with suppress() :
+        install_zsh_plugins()
 
 if __name__ == "__main__":
 
