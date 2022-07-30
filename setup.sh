@@ -1,4 +1,5 @@
-. ./zsh/.profile
+export PATH=$HOME/squashfs-root/usr/bin:$PATH
+export PATH=$HOME/.cargo/bin:$PATH
 
 python install_packages.py
 
@@ -7,4 +8,5 @@ python install_packages.py
 
 cp -r ./zsh/. $HOME/
 
+. ./zsh/.profile
 

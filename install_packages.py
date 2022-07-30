@@ -3,6 +3,7 @@ from subprocess import PIPE
 import subprocess as sp
 import os
 
+HOME = os.environ.get("HOME")
 
 def is_installed(name: str):
     try:
@@ -24,6 +25,7 @@ def download_file(url, location):
         ["curl", url, "--output", location],
         check=True,
     )
+
 
 
 def install_lunar_vim() -> None:
@@ -51,12 +53,15 @@ def install_neovim_latest():
     sp.run(["curl", "-LO", release_url], check=True)
     sp.run(["chmod", "u+x", "nvim.appimage"], check=True)
     sp.run(["./nvim.appimage", "--appimage-extract"], check=True)
+    
     try:
         # moves the squadh-root to home and
-        sp.run(["mv", "./squashfs-root", os.environ.get("HOME")], check=True)
+        sp.run(["mv", "./squashfs-root", f"{HOME}"], check=True)
     except Exception as e:
         print(e)
-
+    
+    sp.run([".",f"./zsh/.profile"],shell=True)
+    
     print("Done")
 
 
@@ -65,7 +70,7 @@ def install_rust_toolchain():
     url = "https://sh.rustup.rs"
     download_file(url, "./rust-installer.sh")
     sp.run(["sh", "./rust-installer.sh", "-y"])
-
+    sp.run([".",f"./zsh/.profile"],shell=True)
 
 def install_packages(packages):
     to_be_installed = [p for p in packages if not is_installed(p)]

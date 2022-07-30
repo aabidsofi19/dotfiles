@@ -42,5 +42,6 @@ export PATH=$HOME/mongodb/bin:$PATH
 export PATH="/home/aabid/solana-1.8.5"/bin:"$PATH"
 export PATH=$HOME/.avm/bin:$PATH
 export PATH=$HOME/squashfs-root/usr/bin:$PATH
+export PATH=$HOME/.cargo/bin:$PATH
 . "$HOME/.cargo/env"
 
