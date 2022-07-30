@@ -1,3 +1,5 @@
+. ./zsh/.profile
+
 python install_packages.py
 
 
