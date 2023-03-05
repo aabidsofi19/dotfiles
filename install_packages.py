@@ -87,25 +87,11 @@ def install_zsh_plugins() :
 
 
 def install_common_deps():
-    deps = ["neofetch", "ripgrep", "wget","tmux","exa"]
-    install_packages(deps)
 
-    if not is_installed("cargo"):
-        install_rust_toolchain()
 
     if not is_installed("nvim"):
         with suppress():
             install_neovim_latest()
-
-    if not is_installed("lvim"):
-        with suppress():
-            install_lunar_vim()
-    
-    with suppress() :
-        install_oh_my_zsh()
-    
-    with suppress() :
-        install_zsh_plugins()
 
 if __name__ == "__main__":
 
