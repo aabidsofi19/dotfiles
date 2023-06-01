@@ -217,6 +217,13 @@ alias gupv='git pull --rebase -v'
 alias gwch='git whatchanged -p --abbrev-commit --pretty=medium'
 alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify --no-gpg-sign -m "--wip-- [skip ci]"'
 alias neocode='WINIT_UNIX_BACKEND=x11 neovide --multigrid --maximized' 
+alias vi='nvim'
+#GDrive Sync 
+
+#copy documents from drive
+alias cfr-docs="/usr/bin/rclone copy --update --verbose --transfers 30 --checkers 8 --contimeout 60s --timeout 300s --retries 3 --low-level-retries 10 --stats 1s 'google-drive:Documents' '/home/aabid/Documents'"
+#copy dovuments to drive
+alias ctr-docs="/usr/bin/rclone copy --update --verbose --transfers 30 --checkers 8 --contimeout 60s --timeout 300s --retries 3 --low-level-retries 10 --stats 1s  '/home/aabid/Documents' 'google-drive:Documents'"
 
 
 # vim:ft=zsh
