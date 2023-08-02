@@ -1,0 +1,30 @@
+ls
+cd workspace/
+ls
+cd freelancing/
+ls
+cd asitana-cms/
+LX
+LS
+ls
+ls | where sizw > 20
+ls | where size > 20
+ls | where size > 20.0
+ls | where size = 20.0
+ls | where size == 20.0
+ls | where size == 21
+ls | where size == 1
+ls | where size >= 1
+ls | where size > 1
+ls | where size > 1KB
+ls | where size > 100KB
+du
+ls
+$nu.env-path
+cd
+cd .config/nushell/
+ls
+vi env.nu
+vi config.nu
+ls
+cd
