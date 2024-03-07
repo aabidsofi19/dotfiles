@@ -1,0 +1,4 @@
+---
+"pane_group:add_right": ctrl-shift-|
+"pane_group:add_down": ctrl-shift-_
+"workspace:toggle_warp_drive": ctrl-shift-W

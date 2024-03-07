@@ -25,7 +25,7 @@ EOF
 # Automatically create a tmux session or use a already
 # exiting one when creating a shell
 
-if [[ $TERM = "xterm-256color"  ]]; then
+if [[ $TERM = "xterm-kitty" ]]; then
 
   session_name="sesh"
 
@@ -51,5 +51,24 @@ fi
 
 function gi() { curl -sLw n https://www.toptal.com/developers/gitignore/api/$@ ;}
 
-source $HOME/.gvm/scripts/gvm 
-gvm use go1.19.1
+
+
+#nvm 
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+
+#ocaml 
+export OPAMROOT=$HOME/.opam/ 
+[[ ! -r /home/aabid/.opam/opam-init/init.zsh ]] || source /home/aabid/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+#history 
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=500000
+SAVEHIST=500000
+setopt appendhistory
+setopt INC_APPEND_HISTORY  
+setopt SHARE_HISTORY
+
+#zoxide 
+eval "$(zoxide init zsh --cmd cd)"

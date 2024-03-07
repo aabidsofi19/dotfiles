@@ -37,4 +37,8 @@ color14='#94E2D5'
 color7='#BAC2DE'
 color15='#A6ADC8'
 
+
+# Dir Colors
+test -r "~/.dir_colors" && eval $(dircolors ~/.dir_colors)
+
 # vim='iletype'=zsh

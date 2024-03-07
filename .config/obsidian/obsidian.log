@@ -87,3 +87,84 @@
 2023-07-30 17:27:09 Success.
 2023-07-30 17:27:09 Latest version is 1.3.5
 2023-07-30 17:27:09 App is up to date.
+2023-08-05 09:00:42 Loading main app package /tmp/.mount_obsidiQO4Kep/resources/obsidian.asar
+2023-08-05 09:00:43 Checking for update using Github
+2023-08-05 09:00:43 Success.
+2023-08-05 09:00:43 Latest version is 1.3.7
+2023-08-05 09:00:43 App is up to date.
+2023-08-06 08:15:16 Loading main app package /tmp/.mount_obsidiKqYQpQ/resources/obsidian.asar
+2023-08-06 08:15:16 Checking for update using Github
+2023-08-06 08:15:17 Success.
+2023-08-06 08:15:17 Latest version is 1.3.7
+2023-08-06 08:15:17 App is up to date.
+2023-08-06 09:15:16 Checking for update using Github
+2023-08-06 09:15:16 Success.
+2023-08-06 09:15:16 Latest version is 1.3.7
+2023-08-06 09:15:16 App is up to date.
+2023-08-06 10:55:01 Checking for update using Github
+2023-08-06 10:55:01 Success.
+2023-08-06 10:55:01 Latest version is 1.3.7
+2023-08-06 10:55:01 App is up to date.
+2023-08-06 13:01:28 Checking for update using Github
+2023-08-06 13:01:28 Success.
+2023-08-06 13:01:28 Latest version is 1.3.7
+2023-08-06 13:01:28 App is up to date.
+2023-08-06 14:01:28 Checking for update using Github
+2023-08-06 14:01:28 Success.
+2023-08-06 14:01:28 Latest version is 1.3.7
+2023-08-06 14:01:28 App is up to date.
+2023-08-06 15:01:28 Checking for update using Github
+2023-08-06 15:01:28 Success.
+2023-08-06 15:01:28 Latest version is 1.3.7
+2023-08-06 15:01:28 App is up to date.
+2023-08-17 09:49:10 Loading main app package /tmp/.mount_obsidiutdkGV/resources/obsidian.asar
+2023-08-17 09:49:10 Checking for update using Github
+2023-08-17 09:49:10 Failed to check for update using Github (net::ERR_INTERNET_DISCONNECTED)
+2023-08-17 09:49:10 Checking for update using obsidian.md
+2023-08-17 09:49:10 Failed to check for update using obsidian.md (net::ERR_INTERNET_DISCONNECTED)
+2023-08-17 10:10:46 Loading main app package /tmp/.mount_obsidiEwYyMq/resources/obsidian.asar
+2023-08-17 10:10:47 Checking for update using Github
+2023-08-17 10:10:47 Failed to check for update using Github (net::ERR_INTERNET_DISCONNECTED)
+2023-08-17 10:10:47 Checking for update using obsidian.md
+2023-08-17 10:10:47 Failed to check for update using obsidian.md (net::ERR_INTERNET_DISCONNECTED)
+2023-08-17 11:10:46 Checking for update using Github
+2023-08-17 11:10:46 Success.
+2023-08-17 11:10:46 Latest version is 1.3.7
+2023-08-17 11:10:46 App is up to date.
+2023-08-17 18:50:23 Loading main app package /tmp/.mount_obsidiQp3ZgQ/resources/obsidian.asar
+2023-08-17 18:50:23 Checking for update using Github
+2023-08-17 18:50:24 Success.
+2023-08-17 18:50:24 Latest version is 1.3.7
+2023-08-17 18:50:24 App is up to date.
+2023-09-03 16:09:13 Loading main app package /tmp/.mount_obsidiEbRZOt/resources/obsidian.asar
+2023-09-03 16:09:13 Checking for update using Github
+2023-09-03 16:09:14 Success.
+2023-09-03 16:09:14 Latest version is 1.4.5
+2023-09-03 16:09:14 Downloading update from https://github.com/obsidianmd/obsidian-releases/releases/download/v1.4.5/obsidian-1.4.5.asar.gz
+2023-09-03 16:09:20 Verifying hash & signature. Size= 8267902
+2023-09-03 16:09:20 Saving file
+2023-09-03 16:09:20 Update complete.
+2023-09-03 17:09:13 Checking for update using Github
+2023-09-03 17:09:13 Success.
+2023-09-03 17:09:13 Latest version is 1.4.5
+2023-09-03 17:09:13 An update is already downloaded.
+2023-09-03 18:20:05 Checking for update using Github
+2023-09-03 18:20:36 Failed to check for update using Github (net::ERR_TIMED_OUT)
+2023-09-03 18:20:36 Checking for update using obsidian.md
+2023-09-03 18:21:06 Failed to check for update using obsidian.md (net::ERR_TIMED_OUT)
+2023-11-16 18:33:46 Loading updated app package /home/aabid/.config/obsidian/obsidian-1.4.5.asar
+2023-11-16 18:33:47 Checking for update using Github
+2023-11-16 18:34:17 Failed to check for update using Github (net::ERR_TIMED_OUT)
+2023-11-16 18:34:17 Checking for update using obsidian.md
+2023-11-16 18:34:47 Failed to check for update using obsidian.md (net::ERR_TIMED_OUT)
+2023-11-16 19:33:46 Checking for update using Github
+2023-11-16 19:33:46 Success.
+2023-11-16 19:33:46 Latest version is 1.4.16
+2023-11-16 19:33:46 Downloading update from https://github.com/obsidianmd/obsidian-releases/releases/download/v1.4.16/obsidian-1.4.16.asar.gz
+2023-11-16 19:33:59 Verifying hash & signature. Size= 8394471
+2023-11-16 19:33:59 Saving file
+2023-11-16 19:33:59 Update complete.
+2023-11-16 20:33:46 Checking for update using Github
+2023-11-16 20:33:46 Success.
+2023-11-16 20:33:46 Latest version is 1.4.16
+2023-11-16 20:33:46 An update is already downloaded.
