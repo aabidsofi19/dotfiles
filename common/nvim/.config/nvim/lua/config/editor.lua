@@ -6,6 +6,7 @@ return {
 	"folke/tokyonight.nvim",
 	"nyoom-engineering/oxocarbon.nvim",
 	"rebelot/kanagawa.nvim",
+    "sainnhe/gruvbox-material",
 	"EdenEast/nightfox.nvim",
 	{
 		"rose-pine/neovim",

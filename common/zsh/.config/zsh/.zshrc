@@ -5,6 +5,9 @@
 ## rxyhn's Z-Shell configuration
 ## https://github.com/rxyhn
 
+#brew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 while read file
 do 
   source "$ZDOTDIR/$file.zsh"
@@ -72,3 +75,8 @@ setopt SHARE_HISTORY
 
 #zoxide 
 eval "$(zoxide init zsh --cmd cd)"
+
+eval "$(fnm env --use-on-cd)" 
+
+ # fnm
+export PATH="$HOME/.local/share/fnm:$PATH"

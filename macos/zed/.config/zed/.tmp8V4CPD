@@ -1,0 +1,51 @@
+{"signed_in":false,"milliseconds_since_first_event":0,"type":"Setting","setting":"theme","value":"Rosé Pine"}
+{"signed_in":false,"milliseconds_since_first_event":0,"type":"Setting","setting":"keymap","value":"VSCode"}
+{"signed_in":false,"milliseconds_since_first_event":0,"type":"App","operation":"open"}
+{"signed_in":false,"milliseconds_since_first_event":0,"type":"Editor","operation":"open","file_extension":"ts","vim_mode":true,"copilot_enabled":true,"copilot_enabled_for_language":true}
+{"signed_in":false,"milliseconds_since_first_event":1576,"type":"Editor","operation":"open","file_extension":"ts","vim_mode":true,"copilot_enabled":true,"copilot_enabled_for_language":true}
+{"signed_in":false,"milliseconds_since_first_event":29260,"type":"Action","source":"command palette","action":":write"}
+{"signed_in":false,"milliseconds_since_first_event":29269,"type":"Editor","operation":"save","file_extension":"ts","vim_mode":true,"copilot_enabled":true,"copilot_enabled_for_language":true}
+{"signed_in":false,"milliseconds_since_first_event":226529,"type":"Memory","memory_in_bytes":68173824,"virtual_memory_in_bytes":456423915520}
+{"signed_in":false,"milliseconds_since_first_event":226530,"type":"Cpu","usage_as_percentage":6.3590503,"core_count":8}
+{"signed_in":false,"milliseconds_since_first_event":0,"type":"Memory","memory_in_bytes":75628544,"virtual_memory_in_bytes":447967133696}
+{"signed_in":false,"milliseconds_since_first_event":0,"type":"Cpu","usage_as_percentage":1.0060601,"core_count":8}
+{"signed_in":false,"milliseconds_since_first_event":48847,"type":"Edit","duration":15938,"environment":"editor"}
+{"signed_in":false,"milliseconds_since_first_event":80074,"type":"Edit","duration":6277,"environment":"editor"}
+{"signed_in":false,"milliseconds_since_first_event":179497,"type":"Edit","duration":23432,"environment":"editor"}
+{"signed_in":false,"milliseconds_since_first_event":240001,"type":"Memory","memory_in_bytes":91504640,"virtual_memory_in_bytes":473740394496}
+{"signed_in":false,"milliseconds_since_first_event":240001,"type":"Cpu","usage_as_percentage":5.3743052,"core_count":8}
+{"signed_in":false,"milliseconds_since_first_event":0,"type":"Edit","duration":146450,"environment":"editor"}
+{"signed_in":false,"milliseconds_since_first_event":2885,"type":"Action","source":"command palette","action":":write"}
+{"signed_in":false,"milliseconds_since_first_event":2886,"type":"Editor","operation":"save","file_extension":"ts","vim_mode":true,"copilot_enabled":true,"copilot_enabled_for_language":true}
+{"signed_in":false,"milliseconds_since_first_event":28278,"type":"Edit","duration":2952,"environment":"editor"}
+{"signed_in":false,"milliseconds_since_first_event":59345,"type":"Action","source":"command palette","action":":write"}
+{"signed_in":false,"milliseconds_since_first_event":59345,"type":"Editor","operation":"save","file_extension":"ts","vim_mode":true,"copilot_enabled":true,"copilot_enabled_for_language":true}
+{"signed_in":false,"milliseconds_since_first_event":131369,"type":"Memory","memory_in_bytes":137248768,"virtual_memory_in_bytes":482333032448}
+{"signed_in":false,"milliseconds_since_first_event":131369,"type":"Cpu","usage_as_percentage":8.010082,"core_count":8}
+{"signed_in":false,"milliseconds_since_first_event":191939,"type":"Edit","duration":98082,"environment":"editor"}
+{"signed_in":false,"milliseconds_since_first_event":200270,"type":"Action","source":"command palette","action":":write"}
+{"signed_in":false,"milliseconds_since_first_event":200270,"type":"Editor","operation":"save","file_extension":"ts","vim_mode":true,"copilot_enabled":true,"copilot_enabled_for_language":true}
+{"signed_in":false,"milliseconds_since_first_event":230145,"type":"Edit","duration":8371,"environment":"editor"}
+{"signed_in":false,"milliseconds_since_first_event":292172,"type":"Action","source":"command palette","action":":write"}
+{"signed_in":false,"milliseconds_since_first_event":292172,"type":"Editor","operation":"save","file_extension":"ts","vim_mode":true,"copilot_enabled":true,"copilot_enabled_for_language":true}
+{"signed_in":false,"milliseconds_since_first_event":0,"type":"Action","source":"command palette","action":":write"}
+{"signed_in":false,"milliseconds_since_first_event":0,"type":"Editor","operation":"save","file_extension":"ts","vim_mode":true,"copilot_enabled":true,"copilot_enabled_for_language":true}
+{"signed_in":false,"milliseconds_since_first_event":40801,"type":"Memory","memory_in_bytes":123289600,"virtual_memory_in_bytes":482348810240}
+{"signed_in":false,"milliseconds_since_first_event":40801,"type":"Cpu","usage_as_percentage":11.626663,"core_count":8}
+{"signed_in":false,"milliseconds_since_first_event":157397,"type":"Action","source":"command palette","action":":write"}
+{"signed_in":false,"milliseconds_since_first_event":157397,"type":"Editor","operation":"save","file_extension":"ts","vim_mode":true,"copilot_enabled":true,"copilot_enabled_for_language":true}
+{"signed_in":false,"milliseconds_since_first_event":158462,"type":"Action","source":"command palette","action":":write"}
+{"signed_in":false,"milliseconds_since_first_event":158462,"type":"Editor","operation":"save","file_extension":"ts","vim_mode":true,"copilot_enabled":true,"copilot_enabled_for_language":true}
+{"signed_in":false,"milliseconds_since_first_event":198037,"type":"Edit","duration":257845,"environment":"editor"}
+{"signed_in":false,"milliseconds_since_first_event":228089,"type":"Action","source":"command palette","action":":write"}
+{"signed_in":false,"milliseconds_since_first_event":228090,"type":"Editor","operation":"save","file_extension":"ts","vim_mode":true,"copilot_enabled":true,"copilot_enabled_for_language":true}
+{"signed_in":false,"milliseconds_since_first_event":244608,"type":"Action","source":"command palette","action":":write"}
+{"signed_in":false,"milliseconds_since_first_event":244618,"type":"Editor","operation":"save","file_extension":"ts","vim_mode":true,"copilot_enabled":true,"copilot_enabled_for_language":true}
+{"signed_in":false,"milliseconds_since_first_event":280798,"type":"Memory","memory_in_bytes":122208256,"virtual_memory_in_bytes":473759793152}
+{"signed_in":false,"milliseconds_since_first_event":280798,"type":"Cpu","usage_as_percentage":9.316495,"core_count":8}
+{"signed_in":false,"milliseconds_since_first_event":289268,"type":"Editor","operation":"open","file_extension":"ts","vim_mode":true,"copilot_enabled":true,"copilot_enabled_for_language":true}
+{"signed_in":false,"milliseconds_since_first_event":297784,"type":"Editor","operation":"open","file_extension":"ts","vim_mode":true,"copilot_enabled":true,"copilot_enabled_for_language":true}
+{"signed_in":false,"milliseconds_since_first_event":0,"type":"Edit","duration":43674,"environment":"editor"}
+{"signed_in":false,"milliseconds_since_first_event":165438,"type":"Memory","memory_in_bytes":92061696,"virtual_memory_in_bytes":473759367168}
+{"signed_in":false,"milliseconds_since_first_event":165438,"type":"Cpu","usage_as_percentage":2.851302,"core_count":8}
+{"signed_in":false,"milliseconds_since_first_event":286492,"type":"Setting","setting":"theme","value":"Rosé Pine Moon"}

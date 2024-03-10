@@ -76,8 +76,6 @@ CORRECT
 EQUALS
 EOF
 
-command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
-eval "$(fnm env --use-on-cd)" 
 
 # Set editor default keymap to emacs (`-e`) or vi (`-v`)
 bindkey -e
