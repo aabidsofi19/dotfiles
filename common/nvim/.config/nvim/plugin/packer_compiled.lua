@@ -92,11 +92,9 @@ _G.packer_plugins = {
     url = "https://github.com/goolord/alpha-nvim"
   },
   ["bufferline.nvim"] = {
-    config = { "\27LJ\2\nü\1\0\0\a\0\b\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0006\4\0\0'\6\3\0B\4\2\2=\4\5\3=\3\a\2B\0\2\1K\0\1\0\foptions\1\0\1\foptions\0\15highlights\1\0\1\15highlights\0!rose-pine.plugins.bufferline\nsetup\15bufferline\frequire\0" },
-    load_after = {},
+    config = { "\27LJ\2\nX\0\0\4\0\5\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0004\3\0\0=\3\4\2B\0\2\1K\0\1\0\foptions\1\0\1\foptions\0\nsetup\15bufferline\frequire\0" },
     loaded = true,
-    needs_bufread = false,
-    path = "/Users/abid/.local/share/nvim/site/pack/packer/opt/bufferline.nvim",
+    path = "/Users/abid/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
   },
   catppuccin = {
@@ -171,17 +169,16 @@ _G.packer_plugins = {
     path = "/Users/abid/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
+  ["gruvbox-material"] = {
+    loaded = true,
+    path = "/Users/abid/.local/share/nvim/site/pack/packer/start/gruvbox-material",
+    url = "https://github.com/sainnhe/gruvbox-material"
+  },
   ["incline.nvim"] = {
     config = { "\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\fincline\frequire\0" },
     loaded = true,
     path = "/Users/abid/.local/share/nvim/site/pack/packer/start/incline.nvim",
     url = "https://github.com/b0o/incline.nvim"
-  },
-  ["indent-blankline.nvim"] = {
-    config = { "\27LJ\2\n1\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\bibl\frequire\0" },
-    loaded = true,
-    path = "/Users/abid/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
-    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
   ["kanagawa.nvim"] = {
     loaded = true,
@@ -193,12 +190,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/abid/.local/share/nvim/site/pack/packer/start/legendary.nvim",
     url = "https://github.com/mrjones2014/legendary.nvim"
-  },
-  ["lsp_lines.nvim"] = {
-    config = { "\27LJ\2\n’\1\0\0\a\0\r\0\0226\0\0\0009\0\1\0009\0\2\0005\2\3\0B\0\2\0016\0\4\0'\2\5\0B\0\2\0029\0\6\0B\0\1\0016\0\0\0009\0\a\0009\0\b\0'\2\t\0'\3\n\0006\4\4\0'\6\5\0B\4\2\0029\4\v\0045\5\f\0B\0\5\1K\0\1\0\1\0\1\tdesc\21Toggle lsp_lines\vtoggle\15<leader>ll\5\bset\vkeymap\nsetup\14lsp_lines\frequire\1\0\1\17virtual_text\1\vconfig\15diagnostic\bvim\0" },
-    loaded = true,
-    path = "/Users/abid/.local/share/nvim/site/pack/packer/start/lsp_lines.nvim",
-    url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
   },
   ["lspkind.nvim"] = {
     loaded = true,
@@ -250,7 +241,7 @@ _G.packer_plugins = {
     url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
-    after = { "cmp-path", "cmp-cmdline", "cmp-nvim-lsp", "cmp-buffer" },
+    after = { "cmp-path", "cmp-nvim-lsp", "cmp-buffer", "cmp-cmdline" },
     config = { "require('config.nvim-cmp')" },
     loaded = true,
     only_config = true,
@@ -308,7 +299,7 @@ _G.packer_plugins = {
     url = "https://github.com/p00f/nvim-ts-rainbow"
   },
   ["nvim-web-devicons"] = {
-    config = { "\27LJ\2\nØ\3\0\0\5\0\16\0\0196\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0005\4\3\0=\4\5\3=\3\a\0025\3\t\0005\4\b\0=\4\n\3=\3\v\0025\3\r\0005\4\f\0=\4\14\3=\3\15\2B\0\2\1K\0\1\0\26override_by_extension\blog\1\0\1\blog\0\1\0\3\ncolor\f#81e043\tname\bLog\ticon\bÔêé\25override_by_filename\15.gitignore\1\0\1\15.gitignore\0\1\0\3\ncolor\f#f1502f\tname\14Gitignore\ticon\bÓúÇ\roverride\1\0\6\fdefault\2\25override_by_filename\0\vstrict\2\16color_icons\2\roverride\0\26override_by_extension\0\bzsh\1\0\1\bzsh\0\1\0\4\ncolor\f#428850\16cterm_color\a65\ticon\bÓûï\tname\bZsh\nsetup\22nvim-web-devicons\frequire\0" },
+    config = { "\27LJ\2\nØ\3\0\0\5\0\16\0\0196\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0005\4\3\0=\4\5\3=\3\a\0025\3\t\0005\4\b\0=\4\n\3=\3\v\0025\3\r\0005\4\f\0=\4\14\3=\3\15\2B\0\2\1K\0\1\0\26override_by_extension\blog\1\0\1\blog\0\1\0\3\ticon\bÔêé\ncolor\f#81e043\tname\bLog\25override_by_filename\15.gitignore\1\0\1\15.gitignore\0\1\0\3\ticon\bÓúÇ\ncolor\f#f1502f\tname\14Gitignore\roverride\1\0\6\26override_by_extension\0\25override_by_filename\0\vstrict\2\fdefault\2\16color_icons\2\roverride\0\bzsh\1\0\1\bzsh\0\1\0\4\ticon\bÓûï\16cterm_color\a65\ncolor\f#428850\tname\bZsh\nsetup\22nvim-web-devicons\frequire\0" },
     loaded = true,
     path = "/Users/abid/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/nvim-tree/nvim-web-devicons"
@@ -335,10 +326,8 @@ _G.packer_plugins = {
     url = "https://github.com/ThePrimeagen/refactoring.nvim"
   },
   ["rose-pine"] = {
-    after = { "bufferline.nvim" },
-    config = { "\27LJ\2\nã\1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\4\29disable_float_background\1\23disable_background\1\17dark_variant\tmoon\fvariant\tmoon\nsetup\14rose-pine\frequire\0" },
+    config = { "\27LJ\2\nã\1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\4\fvariant\tmoon\23disable_background\1\17dark_variant\tmoon\29disable_float_background\1\nsetup\14rose-pine\frequire\0" },
     loaded = true,
-    only_config = true,
     path = "/Users/abid/.local/share/nvim/site/pack/packer/start/rose-pine",
     url = "https://github.com/rose-pine/neovim"
   },
@@ -384,14 +373,54 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: indent-blankline.nvim
-time([[Config for indent-blankline.nvim]], true)
-try_loadstring("\27LJ\2\n1\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\bibl\frequire\0", "config", "indent-blankline.nvim")
-time([[Config for indent-blankline.nvim]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require('config.treesitter')
+time([[Config for nvim-treesitter]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+require('config.telescope')
+time([[Config for telescope.nvim]], false)
 -- Config for: Comment.nvim
 time([[Config for Comment.nvim]], true)
 try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
 time([[Config for Comment.nvim]], false)
+-- Config for: null-ls.nvim
+time([[Config for null-ls.nvim]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fnull-ls\frequire\0", "config", "null-ls.nvim")
+time([[Config for null-ls.nvim]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
+time([[Config for nvim-autopairs]], false)
+-- Config for: nvim-ts-autotag
+time([[Config for nvim-ts-autotag]], true)
+try_loadstring("\27LJ\2\n=\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\20nvim-ts-autotag\frequire\0", "config", "nvim-ts-autotag")
+time([[Config for nvim-ts-autotag]], false)
+-- Config for: alpha-nvim
+time([[Config for alpha-nvim]], true)
+try_loadstring("\27LJ\2\n`\0\0\5\0\5\0\n6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0029\2\4\2B\0\2\1K\0\1\0\vconfig\26alpha.themes.startify\nsetup\nalpha\frequire\0", "config", "alpha-nvim")
+time([[Config for alpha-nvim]], false)
+-- Config for: noice.nvim
+time([[Config for noice.nvim]], true)
+try_loadstring("\27LJ\2\n,\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\17config.noice\frequire\0", "config", "noice.nvim")
+time([[Config for noice.nvim]], false)
+-- Config for: nvim-surround
+time([[Config for nvim-surround]], true)
+try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0", "config", "nvim-surround")
+time([[Config for nvim-surround]], false)
+-- Config for: crates.nvim
+time([[Config for crates.nvim]], true)
+try_loadstring("\27LJ\2\n4\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\vcrates\frequire\0", "config", "crates.nvim")
+time([[Config for crates.nvim]], false)
+-- Config for: bufferline.nvim
+time([[Config for bufferline.nvim]], true)
+try_loadstring("\27LJ\2\nX\0\0\4\0\5\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0004\3\0\0=\3\4\2B\0\2\1K\0\1\0\foptions\1\0\1\foptions\0\nsetup\15bufferline\frequire\0", "config", "bufferline.nvim")
+time([[Config for bufferline.nvim]], false)
+-- Config for: dressing.nvim
+time([[Config for dressing.nvim]], true)
+try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rdressing\frequire\0", "config", "dressing.nvim")
+time([[Config for dressing.nvim]], false)
 -- Config for: nvim-colorizer.lua
 time([[Config for nvim-colorizer.lua]], true)
 try_loadstring("\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14colorizer\frequire\0", "config", "nvim-colorizer.lua")
@@ -400,14 +429,14 @@ time([[Config for nvim-colorizer.lua]], false)
 time([[Config for which-key.nvim]], true)
 try_loadstring("\27LJ\2\nt\0\0\3\0\a\0\0156\0\0\0009\0\1\0+\1\2\0=\1\2\0006\0\0\0009\0\1\0)\1,\1=\1\3\0006\0\4\0'\2\5\0B\0\2\0029\0\6\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\15timeoutlen\ftimeout\6o\bvim\0", "config", "which-key.nvim")
 time([[Config for which-key.nvim]], false)
--- Config for: legendary.nvim
-time([[Config for legendary.nvim]], true)
-try_loadstring("\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14legendary\frequire\0", "config", "legendary.nvim")
-time([[Config for legendary.nvim]], false)
--- Config for: rose-pine
-time([[Config for rose-pine]], true)
-try_loadstring("\27LJ\2\nã\1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\4\29disable_float_background\1\23disable_background\1\17dark_variant\tmoon\fvariant\tmoon\nsetup\14rose-pine\frequire\0", "config", "rose-pine")
-time([[Config for rose-pine]], false)
+-- Config for: toggleterm.nvim
+time([[Config for toggleterm.nvim]], true)
+try_loadstring("\27LJ\2\nÉ\1\0\0\4\0\6\0\v6\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0029\1\3\0015\3\4\0=\0\5\3B\1\2\1K\0\1\0\15highlights\1\0\1\15highlights\0\nsetup\15toggleterm!rose-pine.plugins.toggleterm\frequire\0", "config", "toggleterm.nvim")
+time([[Config for toggleterm.nvim]], false)
+-- Config for: git-conflict.nvim
+time([[Config for git-conflict.nvim]], true)
+try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\17git-conflict\frequire\0", "config", "git-conflict.nvim")
+time([[Config for git-conflict.nvim]], false)
 -- Config for: lualine.nvim
 time([[Config for lualine.nvim]], true)
 require('config.lualine')
@@ -416,97 +445,48 @@ time([[Config for lualine.nvim]], false)
 time([[Config for nvim-cmp]], true)
 require('config.nvim-cmp')
 time([[Config for nvim-cmp]], false)
--- Config for: alpha-nvim
-time([[Config for alpha-nvim]], true)
-try_loadstring("\27LJ\2\n`\0\0\5\0\5\0\n6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0029\2\4\2B\0\2\1K\0\1\0\vconfig\26alpha.themes.startify\nsetup\nalpha\frequire\0", "config", "alpha-nvim")
-time([[Config for alpha-nvim]], false)
--- Config for: toggleterm.nvim
-time([[Config for toggleterm.nvim]], true)
-try_loadstring("\27LJ\2\nÉ\1\0\0\4\0\6\0\v6\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0029\1\3\0015\3\4\0=\0\5\3B\1\2\1K\0\1\0\15highlights\1\0\1\15highlights\0\nsetup\15toggleterm!rose-pine.plugins.toggleterm\frequire\0", "config", "toggleterm.nvim")
-time([[Config for toggleterm.nvim]], false)
--- Config for: null-ls.nvim
-time([[Config for null-ls.nvim]], true)
-try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fnull-ls\frequire\0", "config", "null-ls.nvim")
-time([[Config for null-ls.nvim]], false)
--- Config for: todo-comments.nvim
-time([[Config for todo-comments.nvim]], true)
-try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18todo-comments\frequire\0", "config", "todo-comments.nvim")
-time([[Config for todo-comments.nvim]], false)
--- Config for: crates.nvim
-time([[Config for crates.nvim]], true)
-try_loadstring("\27LJ\2\n4\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\vcrates\frequire\0", "config", "crates.nvim")
-time([[Config for crates.nvim]], false)
--- Config for: dressing.nvim
-time([[Config for dressing.nvim]], true)
-try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rdressing\frequire\0", "config", "dressing.nvim")
-time([[Config for dressing.nvim]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
-require('config.nvim-tree')
-time([[Config for nvim-tree.lua]], false)
--- Config for: noice.nvim
-time([[Config for noice.nvim]], true)
-try_loadstring("\27LJ\2\n,\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\17config.noice\frequire\0", "config", "noice.nvim")
-time([[Config for noice.nvim]], false)
--- Config for: nvim-ts-autotag
-time([[Config for nvim-ts-autotag]], true)
-try_loadstring("\27LJ\2\n=\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\20nvim-ts-autotag\frequire\0", "config", "nvim-ts-autotag")
-time([[Config for nvim-ts-autotag]], false)
--- Config for: git-conflict.nvim
-time([[Config for git-conflict.nvim]], true)
-try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\17git-conflict\frequire\0", "config", "git-conflict.nvim")
-time([[Config for git-conflict.nvim]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-require('config.telescope')
-time([[Config for telescope.nvim]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
-try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
-time([[Config for nvim-autopairs]], false)
--- Config for: lsp_lines.nvim
-time([[Config for lsp_lines.nvim]], true)
-try_loadstring("\27LJ\2\n’\1\0\0\a\0\r\0\0226\0\0\0009\0\1\0009\0\2\0005\2\3\0B\0\2\0016\0\4\0'\2\5\0B\0\2\0029\0\6\0B\0\1\0016\0\0\0009\0\a\0009\0\b\0'\2\t\0'\3\n\0006\4\4\0'\6\5\0B\4\2\0029\4\v\0045\5\f\0B\0\5\1K\0\1\0\1\0\1\tdesc\21Toggle lsp_lines\vtoggle\15<leader>ll\5\bset\vkeymap\nsetup\14lsp_lines\frequire\1\0\1\17virtual_text\1\vconfig\15diagnostic\bvim\0", "config", "lsp_lines.nvim")
-time([[Config for lsp_lines.nvim]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-try_loadstring("\27LJ\2\n*\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\15config.git\frequire\0", "config", "gitsigns.nvim")
-time([[Config for gitsigns.nvim]], false)
 -- Config for: refactoring.nvim
 time([[Config for refactoring.nvim]], true)
 try_loadstring("\27LJ\2\n=\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\16refactoring\frequire\0", "config", "refactoring.nvim")
 time([[Config for refactoring.nvim]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+try_loadstring("\27LJ\2\n*\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\15config.git\frequire\0", "config", "gitsigns.nvim")
+time([[Config for gitsigns.nvim]], false)
+-- Config for: todo-comments.nvim
+time([[Config for todo-comments.nvim]], true)
+try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18todo-comments\frequire\0", "config", "todo-comments.nvim")
+time([[Config for todo-comments.nvim]], false)
+-- Config for: rose-pine
+time([[Config for rose-pine]], true)
+try_loadstring("\27LJ\2\nã\1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\4\fvariant\tmoon\23disable_background\1\17dark_variant\tmoon\29disable_float_background\1\nsetup\14rose-pine\frequire\0", "config", "rose-pine")
+time([[Config for rose-pine]], false)
 -- Config for: nvim-web-devicons
 time([[Config for nvim-web-devicons]], true)
-try_loadstring("\27LJ\2\nØ\3\0\0\5\0\16\0\0196\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0005\4\3\0=\4\5\3=\3\a\0025\3\t\0005\4\b\0=\4\n\3=\3\v\0025\3\r\0005\4\f\0=\4\14\3=\3\15\2B\0\2\1K\0\1\0\26override_by_extension\blog\1\0\1\blog\0\1\0\3\ncolor\f#81e043\tname\bLog\ticon\bÔêé\25override_by_filename\15.gitignore\1\0\1\15.gitignore\0\1\0\3\ncolor\f#f1502f\tname\14Gitignore\ticon\bÓúÇ\roverride\1\0\6\fdefault\2\25override_by_filename\0\vstrict\2\16color_icons\2\roverride\0\26override_by_extension\0\bzsh\1\0\1\bzsh\0\1\0\4\ncolor\f#428850\16cterm_color\a65\ticon\bÓûï\tname\bZsh\nsetup\22nvim-web-devicons\frequire\0", "config", "nvim-web-devicons")
+try_loadstring("\27LJ\2\nØ\3\0\0\5\0\16\0\0196\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0005\4\3\0=\4\5\3=\3\a\0025\3\t\0005\4\b\0=\4\n\3=\3\v\0025\3\r\0005\4\f\0=\4\14\3=\3\15\2B\0\2\1K\0\1\0\26override_by_extension\blog\1\0\1\blog\0\1\0\3\ticon\bÔêé\ncolor\f#81e043\tname\bLog\25override_by_filename\15.gitignore\1\0\1\15.gitignore\0\1\0\3\ticon\bÓúÇ\ncolor\f#f1502f\tname\14Gitignore\roverride\1\0\6\26override_by_extension\0\25override_by_filename\0\vstrict\2\fdefault\2\16color_icons\2\roverride\0\bzsh\1\0\1\bzsh\0\1\0\4\ticon\bÓûï\16cterm_color\a65\ncolor\f#428850\tname\bZsh\nsetup\22nvim-web-devicons\frequire\0", "config", "nvim-web-devicons")
 time([[Config for nvim-web-devicons]], false)
--- Config for: nvim-surround
-time([[Config for nvim-surround]], true)
-try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0", "config", "nvim-surround")
-time([[Config for nvim-surround]], false)
--- Config for: incline.nvim
-time([[Config for incline.nvim]], true)
-try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\fincline\frequire\0", "config", "incline.nvim")
-time([[Config for incline.nvim]], false)
 -- Config for: catppuccin
 time([[Config for catppuccin]], true)
 require("config.catppuccin")
 time([[Config for catppuccin]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-require('config.treesitter')
-time([[Config for nvim-treesitter]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+require('config.nvim-tree')
+time([[Config for nvim-tree.lua]], false)
+-- Config for: legendary.nvim
+time([[Config for legendary.nvim]], true)
+try_loadstring("\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14legendary\frequire\0", "config", "legendary.nvim")
+time([[Config for legendary.nvim]], false)
+-- Config for: incline.nvim
+time([[Config for incline.nvim]], true)
+try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\fincline\frequire\0", "config", "incline.nvim")
+time([[Config for incline.nvim]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
-vim.cmd [[ packadd cmp-cmdline ]]
 vim.cmd [[ packadd cmp-buffer ]]
-vim.cmd [[ packadd cmp-path ]]
 vim.cmd [[ packadd cmp-nvim-lsp ]]
-vim.cmd [[ packadd bufferline.nvim ]]
-
--- Config for: bufferline.nvim
-try_loadstring("\27LJ\2\nü\1\0\0\a\0\b\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0006\4\0\0'\6\3\0B\4\2\2=\4\5\3=\3\a\2B\0\2\1K\0\1\0\foptions\1\0\1\foptions\0\15highlights\1\0\1\15highlights\0!rose-pine.plugins.bufferline\nsetup\15bufferline\frequire\0", "config", "bufferline.nvim")
-
+vim.cmd [[ packadd cmp-cmdline ]]
+vim.cmd [[ packadd cmp-path ]]
 time([[Sequenced loading]], false)
 
 _G._packer.inside_compile = false

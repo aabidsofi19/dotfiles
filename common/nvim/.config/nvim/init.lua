@@ -8,13 +8,9 @@ require("workspace")
 vim.g.copilot_assume_mapped = true
 vim.api.nvim_set_keymap('i', '<C-X>', 'copilot#Accept("<CR>")', {expr=true, silent=true,script=true})
 
-
--- Set default file format to Unix (LF line endings) for all files
-
-vim.cmd[[au! BufRead,BufNewFile * setlocal fileformat=unix]]
 if vim.g.neovide then
 	-- Set transparency and background color (title bar color)
-	-- vim.o.guifont = "Iosevka:h14"
+	vim.o.guifont = "Iosevka:h16"
 	vim.g.neovide_transparency = 0.9
 	vim.g.neovide_floating_blur = 1
 	-- vim.g.transparency = 0.6

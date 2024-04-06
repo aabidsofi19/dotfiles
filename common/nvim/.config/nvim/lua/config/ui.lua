@@ -69,21 +69,19 @@ return {
 		end,
 	},
 
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		config = function()
-			require("ibl").setup()
-		end,
-	},
+	-- {
+	-- 	"lukas-reineke/indent-blankline.nvim",
+	-- 	config = function()
+	-- 		require("ibl").setup()
+	-- 	end,
+	-- },
 
 	{
 		"akinsho/bufferline.nvim",
 		-- event = "ColorScheme",
-		after = "rose-pine",
 		config = function()
 			require("bufferline").setup({
 				options = {
-					highlights = require("rose-pine.plugins.bufferline"),
 				},
 			})
 		end,

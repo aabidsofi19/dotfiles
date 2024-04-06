@@ -74,17 +74,17 @@ return {
 		end,
 	}, -- Null ls is used for code formatting and pylint analysis
 	{ "simrat39/rust-tools.nvim" },
-	{
-		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-		config = function()
-			vim.diagnostic.config({
-				virtual_text = false,
-			})
-
-			require("lsp_lines").setup()
-			vim.keymap.set("", "<leader>ll", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
-		end,
-	},
+	-- {
+	-- 	"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+	-- 	config = function()
+	-- 		vim.diagnostic.config({
+	-- 			virtual_text = false,
+	-- 		})
+	--
+	-- 		require("lsp_lines").setup()
+	-- 		vim.keymap.set("", "<leader>ll", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
+	-- 	end,
+	-- },
 	----------------------------
 	--auto-completion
 	----------------------------
