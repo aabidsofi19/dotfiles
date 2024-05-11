@@ -6,7 +6,7 @@ return {
 	"folke/tokyonight.nvim",
 	"nyoom-engineering/oxocarbon.nvim",
 	"rebelot/kanagawa.nvim",
-    "sainnhe/gruvbox-material",
+	"sainnhe/gruvbox-material",
 	"EdenEast/nightfox.nvim",
 	{
 		"rose-pine/neovim",
@@ -51,6 +51,22 @@ return {
 			require("nvim-ts-autotag").setup()
 		end,
 	},
+
+	--transparent background
+	{
+		"xiyaowong/nvim-transparent",
+		config = function()
+			require("nvim-transparent").setup({
+				enable = true,
+				max_alpha = 100,
+				min_alpha = 20,
+				reverse = false,
+				debug = false,
+				exclude = {},
+			})
+		end,
+	},
+
 	-- Treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -59,9 +75,9 @@ return {
 	},
 	"nvim-treesitter/nvim-treesitter-context",
 	"p00f/nvim-ts-rainbow",
-    -- Copilot 
-    { "github/copilot.vim"},
-    ----------------------------------------
+	-- Copilot
+	{ "github/copilot.vim" },
+	----------------------------------------
 	-- LSP Plugins
 	-- ------------------------------------
 	{ "williamboman/mason.nvim" },
@@ -108,12 +124,13 @@ return {
 			require("config.git")
 		end,
 	},
-    {
-        "akinsho/git-conflict.nvim", tag = "*",
-        config = function()
-            require('git-conflict').setup()
-        end
-    },
+	{
+		"akinsho/git-conflict.nvim",
+		tag = "*",
+		config = function()
+			require("git-conflict").setup()
+		end,
+	},
 
 	--- Terminals
 	{

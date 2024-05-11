@@ -6,7 +6,7 @@ require("keymaps").setup()
 require("workspace")
 
 vim.g.copilot_assume_mapped = true
-vim.api.nvim_set_keymap('i', '<C-X>', 'copilot#Accept("<CR>")', {expr=true, silent=true,script=true})
+vim.api.nvim_set_keymap("i", "<C-X>", 'copilot#Accept("<CR>")', { expr = true, silent = true, script = true })
 
 if vim.g.neovide then
 	-- Set transparency and background color (title bar color)
@@ -21,3 +21,5 @@ if vim.g.neovide then
 	vim.g.neovide_refresh_rate = 60
 end
 
+require("transparent").clear_prefix("lualine")
+require("transparent").clear_prefix("BufferLine")

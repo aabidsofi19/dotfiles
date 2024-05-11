@@ -81,9 +81,14 @@ return {
 		-- event = "ColorScheme",
 		config = function()
 			require("bufferline").setup({
-				options = {
-				},
+				options = {},
 			})
+			vim.g.transparent_groups = vim.list_extend(
+				vim.g.transparent_groups or {},
+				vim.tbl_map(function(v)
+					return v.hl_group
+				end, vim.tbl_values(require("bufferline.config").highlights))
+			)
 		end,
 		requires = "nvim-tree/nvim-web-devicons",
 	},
@@ -92,7 +97,7 @@ return {
 		"folke/noice.nvim",
 		-- disable = vim.g.neovide,
 		-- cond = function()
-			-- return not vim.g.neovide
+		-- return not vim.g.neovide
 		-- end,
 		config = function()
 			require("config.noice")
