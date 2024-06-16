@@ -1,0 +1,29 @@
+{
+  "prefs": {
+    "WelcomeTipsCompleted": "true",
+    "EmacsBindingsBannerState": "\"Dismissed\"",
+    "AliasExpansionBannerSeen": "true",
+    "OverrideOpacity": "100",
+    "WelcomeTipsFeaturesUsed": "[{\"Action\":\"CommandPalette\"},{\"Action\":\"HistorySearch\"},{\"Action\":\"WarpAI\"},{\"Action\":\"ThemePicker\"},{\"Action\":\"SaveNewLaunchConfig\"},{\"Hint\":\"CreateBlock\"},{\"Action\":\"CommandSearch\"},{\"Action\":\"OpenWarpDrive\"},{\"Action\":\"SplitPane\"},{\"Hint\":\"BlockAction\"},{\"Hint\":\"BlockSelect\"}]",
+    "WorkflowsBoxOpen": "true",
+    "FontSize": "15.0",
+    "StartupShellOverride": "\"zsh\"",
+    "Shortcuts": "true",
+    "ReceivedReferralTheme": "\"Inactive\"",
+    "VimKeybindingsBannerState": "\"Dismissed\"",
+    "HasAutoOpenedWelcomeFolder": "true",
+    "SelectedSystemThemes": "{\"light\":\"Light\",\"dark\":\"GruvboxDark\"}",
+    "NotebookFontSize": "14.0",
+    "AIAssistantRequestLimitInfo": "{\"limit\":100,\"num_requests_used_since_refresh\":3,\"next_refresh_time\":\"2024-02-25T16:52:41.124608Z\"}",
+    "HasDismissedWarpDriveWelcome": "true",
+    "ChangelogVersions": "{\"v0.2024.02.20.08.01.stable_01\":true,\"v0.2024.04.30.08.02.stable_02\":true}",
+    "HonorPS1": "true",
+    "AutosuggestionAcceptedCount": "2",
+    "Theme": "{\"Custom\":{\"name\":\"Vitesse Dark Soft\",\"path\":\"/home/aabid/.local/share/warp-terminal/themes/standard/vitesse_dark_soft.yaml\"}}",
+    "SystemTheme": "false",
+    "OpenWindowsAtCustomSize": "false",
+    "ExperimentId": "2a0e98e9-f650-4964-aa21-7a2d75d48127",
+    "FontName": "\"CaskaydiaCove Nerd Font\"",
+    "VimModeEnabled": "true"
+  }
+}
