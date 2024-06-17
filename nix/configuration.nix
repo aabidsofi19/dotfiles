@@ -118,9 +118,13 @@
     neovim
     wget
     curl
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    gcc
   ];
+
+  
+  users.defaultUserShell = pkgs.zsh;
+  environment.shells = with pkgs; [ zsh bash ];
+  programs.zsh.enable = true;
 
   # Environment Variables
   environment.variables.EDITOR = "nvim";

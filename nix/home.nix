@@ -1,6 +1,14 @@
-{ config, pkgs, ... }:
+{ system ? builtins.currentSystem, config, pkgs, ... }:
 
 {
+  fonts.fontconfig.enable = true;
+
+ imports = [
+    ./modules/alacritty.nix 
+    ./modules/zsh.nix
+    ./modules/neovim/module.nix
+  ];
+
   # TODO please change the username & home directory to your own
   home.username = "aabid";
   home.homeDirectory = "/home/aabid";
@@ -30,6 +38,8 @@
   home.packages = with pkgs; [
     # here is some command line tools I use frequently
     # feel free to add your own or remove some of them
+
+    (pkgs.nerdfonts.override { fonts = [  "FiraCode" "DroidSansMono" ]; })
 
     neofetch
     gitui
@@ -95,13 +105,24 @@
     ethtool
     pciutils # lspci
     usbutils # lsusb
+
+    #development 
+    nodejs
+    rustup
+    nodePackages.npm
+    nodePackages.pnpm
+    go_1_21
+    # ((import (builtins.fetchTarball {
+    #     url = "https://github.com/NixOS/nixpkgs/archive/336eda0d07dc5e2be1f923990ad9fdb6bc8e28e3.tar.gz";
+    #     sha256 = "sha256:0v8vnmgw7cifsp5irib1wkc0bpxzqcarlv8mdybk6dck5m7p10lr";
+    # })) { inherit system ; }).go_1_21
   ];
 
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
-    userName = "Ryan Yin";
-    userEmail = "xiaoyin_c@qq.com";
+    userName = "Aabid Sofi";
+    userEmail = "mailtoaabid01@gmail.com";
   };
 
   # starship - an customizable prompt for any shell
@@ -116,20 +137,7 @@
     };
   };
 
-  # alacritty - a cross-platform, GPU-accelerated terminal emulator
-  programs.alacritty = {
-    enable = true;
-    # custom settings
-    settings = {
-      env.TERM = "xterm-256color";
-      font = {
-        size = 12;
-        draw_bold_text_with_bright_colors = true;
-      };
-      scrolling.multiplier = 5;
-      selection.save_to_clipboard = true;
-    };
-  };
+
 
   programs.bash = {
     enable = true;
@@ -148,6 +156,14 @@
   };
 
 
+  services = {
+    syncthing.enable = true;
+
+    # auto mount usb drives
+    udiskie.enable = true;
+  };
+
+  home.file.".config/nvim".source = ../common/nvim/.config/nvim ;
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
