@@ -146,15 +146,6 @@
     };
   };
 
-  ## docker 
-  # enable docker
-  virtualisation.docker.enable = true;
-
-  # use docker without Root access (Rootless docker)
-  virtualisation.docker.rootless = {
-    enable = true;
-    setSocketVariable = true;
-  };
 
 
   # This value determines the home Manager release that your

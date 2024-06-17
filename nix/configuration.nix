@@ -90,6 +90,17 @@
     ];
   };
 
+
+  ## docker 
+  # enable docker
+  virtualisation.docker.enable = true;
+
+  # use docker without Root access (Rootless docker)
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
+
   # Install firefox.
   programs.firefox.enable = true;
 
