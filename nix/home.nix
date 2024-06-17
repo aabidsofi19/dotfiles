@@ -78,6 +78,7 @@
     # productivity
     hugo # static site generator
     glow # markdown previewer in terminal
+    slack 
 
     btop  # replacement of htop/nmon
     iotop # io monitoring
