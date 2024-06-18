@@ -34,6 +34,8 @@
   # networking.interfaces.enp7s0.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp9s0f4u1.useDHCP = lib.mkDefault true;
 
+  hardware.bluetooth.enable = true ;
+
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

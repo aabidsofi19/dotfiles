@@ -119,15 +119,26 @@
     wget
     curl
     gcc
+    gnumake
+    postgresql
+    bluez
   ];
 
   
   users.defaultUserShell = pkgs.zsh;
-  environment.shells = with pkgs; [ zsh bash ];
+  environment.shells = with pkgs; [ zsh ];
   programs.zsh.enable = true;
 
   # Environment Variables
   environment.variables.EDITOR = "nvim";
+services.envfs.enable = true;
+#
+# system.activationScripts.binbash = {
+#     deps = [ "binsh" ];
+#     text = ''
+#          sudo ln -s /bin/sh /bin/bash
+#     '';
+#   };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

@@ -16,6 +16,21 @@
       c = "clear";
       p = "pijul";
       open = "xdg-open";
+      psf = "ps -aux | grep";
+      lsf = "ls | grep";
+
+      # clean
+      dklocal =
+        "docker run --rm -it -v `PWD`:/usr/workdir --workdir=/usr/workdir";
+      dkclean = "docker container rm $(docker container ls -aq)";
+
+      gclean =
+        "git fetch -p && for branch in $(git branch -vv | grep ': gone]' | awk '{print $1}'); do git branch -D $branch; done";
+      weather = "curl -4 http://wttr.in/Koeln";
+
+      # nix
+      nixclean =
+        "nix-collect-garbage -d && nix-store --gc && nix-store --verify --check-contents && nix store optimise";
     };
 
     initExtra = ''
@@ -41,7 +56,6 @@
         "yarn"
         "zsh-navigation-tools"
         "mix"
-        "pijul"
       ];
     };
   };
