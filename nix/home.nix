@@ -90,6 +90,8 @@
     hugo # static site generator
     glow # markdown previewer in terminal
     slack 
+    zoom
+    clickup
 
     btop  # replacement of htop/nmon
     iotop # io monitoring
