@@ -9,9 +9,12 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    nix-ld.url = "github:Mic92/nix-ld";
+    # this line assume that you also have nixpkgs as an input
+    nix-ld.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs,home-manager, ... }@inputs: {
+  outputs = { self, nix-ld,nixpkgs,home-manager, ... }@inputs: {
     # Please replace my-nixos with your hostname
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -20,6 +23,11 @@
           # so the old configuration file still takes effect
           ./configuration.nix
           ./bibbash.nix
+
+          nix-ld.nixosModules.nix-ld
+          # The module in this repository defines a new module under (programs.nix-ld.dev) instead of (programs.nix-ld) 
+          # to not collide with the nixpkgs version.
+          { programs.nix-ld.dev.enable = true; }
 
           # make home-manager as a module of nixos
           # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`

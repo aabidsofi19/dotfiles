@@ -68,6 +68,7 @@
     socat # replacement of openbsd-netcat
     nmap # A utility for network discovery and security auditing
     ipcalc  # it is a calculator for the IPv4/v6 addresses
+    cloudflare-warp
 
     # misc
     cowsay
@@ -90,7 +91,8 @@
     hugo # static site generator
     glow # markdown previewer in terminal
     slack 
-    zoom
+    zoom-us
+    google-chrome
     clickup
 
     btop  # replacement of htop/nmon
@@ -110,15 +112,16 @@
     usbutils # lsusb
 
     #development 
+    vscode-fhs
     warp-terminal
     nodejs
     rustup
     nodePackages.npm
     nodePackages.pnpm
     go_1_21
-    podman
-    podman-desktop
     zed-editor
+    jekyll
+    bundler # ruby gem bundler
     # ((import (builtins.fetchTarball {
     #     url = "https://github.com/NixOS/nixpkgs/archive/336eda0d07dc5e2be1f923990ad9fdb6bc8e28e3.tar.gz";
     #     sha256 = "sha256:0v8vnmgw7cifsp5irib1wkc0bpxzqcarlv8mdybk6dck5m7p10lr";
@@ -162,6 +165,8 @@
     };
   };
 
+  home.sessionPath = ["~/go/bin"];
+  
 
   services = {
     syncthing.enable = true;
