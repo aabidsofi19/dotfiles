@@ -1,4 +1,4 @@
-{ system ? builtins.currentSystem, config, pkgs, ... }:
+{ lib, system ? builtins.currentSystem, config, pkgs, ... }:
 
 {
   fonts.fontconfig.enable = true;
@@ -8,6 +8,7 @@
     ./modules/zsh.nix
     ./modules/neovim/module.nix
     ./modules/zellij.nix
+    ./modules/playwright.nix
   ];
 
   # TODO please change the username & home directory to your own
@@ -45,6 +46,8 @@
     neofetch
     gitui
     ranger # terminal file manager
+
+    mpv
 
     # archives
     zip
@@ -118,6 +121,7 @@
     rustup
     nodePackages.npm
     nodePackages.pnpm
+    nodePackages.eslint_d
     go_1_21
     zed-editor
     jekyll
@@ -176,6 +180,11 @@
   };
 
 
+  home.file.".npmrc".text = lib.generators.toINIWithGlobalSection {} {
+    globalSection = {
+      prefix = "/home/aabid/.npm-packages";
+    };
+  };
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new home Manager release introduces backwards
