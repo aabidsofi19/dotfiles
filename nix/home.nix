@@ -114,6 +114,9 @@
     pciutils # lspci
     usbutils # lsusb
 
+    #utils 
+    simplescreenrecorder
+
     #development 
     vscode-fhs
     warp-terminal
@@ -124,6 +127,7 @@
     nodePackages.eslint_d
     go_1_21
     zed-editor
+    gh
     jekyll
     bundler # ruby gem bundler
     # ((import (builtins.fetchTarball {
