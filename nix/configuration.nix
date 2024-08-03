@@ -9,7 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./modules/system/podman.nix
-       
+
     ];
 
   # Bootloader.
@@ -96,7 +96,7 @@
   };
 
 
-  ## docker 
+  ## docker
   # enable docker
   # virtualisation.docker.enable = true;
   #
@@ -129,14 +129,16 @@
     bluez
   ];
 
-  
+
   users.defaultUserShell = pkgs.zsh;
   environment.shells = with pkgs; [ zsh ];
   programs.zsh.enable = true;
 
   # Environment Variables
   environment.variables.EDITOR = "nvim";
-services.envfs.enable = true;
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
+  services.envfs.enable = true;
 #
 # system.activationScripts.binbash = {
 #     deps = [ "binsh" ];

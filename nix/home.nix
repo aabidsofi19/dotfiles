@@ -4,12 +4,16 @@
   fonts.fontconfig.enable = true;
 
  imports = [
-    ./modules/alacritty.nix 
+    ./modules/alacritty.nix
     ./modules/zsh.nix
     ./modules/neovim/module.nix
     ./modules/zellij.nix
     ./modules/playwright.nix
+    ./modules/helix.nix
+    ./modules/hyprland.nix
+    # ./modules/theme.nix
   ];
+
 
   # TODO please change the username & home directory to your own
   home.username = "aabid";
@@ -38,6 +42,7 @@
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
+    hyprland
     # here is some command line tools I use frequently
     # feel free to add your own or remove some of them
 
@@ -93,7 +98,7 @@
     # productivity
     hugo # static site generator
     glow # markdown previewer in terminal
-    slack 
+    slack
     zoom-us
     google-chrome
     clickup
@@ -114,14 +119,19 @@
     pciutils # lspci
     usbutils # lsusb
 
-    #utils 
+    #utils
     simplescreenrecorder
 
-    #development 
+    #lsp
+    nil
+    nodePackages.typescript-language-server
+
+    #development
     vscode-fhs
     warp-terminal
     nodejs
     rustup
+    python3
     nodePackages.npm
     nodePackages.pnpm
     nodePackages.eslint_d
@@ -174,7 +184,7 @@
   };
 
   home.sessionPath = ["~/go/bin"];
-  
+
 
   services = {
     syncthing.enable = true;

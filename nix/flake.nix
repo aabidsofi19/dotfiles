@@ -12,6 +12,34 @@
     nix-ld.url = "github:Mic92/nix-ld";
     # this line assume that you also have nixpkgs as an input
     nix-ld.inputs.nixpkgs.follows = "nixpkgs";
+
+      hypr-contrib.url = "github:hyprwm/contrib";
+      hyprpicker.url = "github:hyprwm/hyprpicker";
+
+      alejandra.url = "github:kamadorueda/alejandra/3.0.0";
+
+      # nix-gaming.url = "github:fufexan/nix-gaming";
+
+      hyprland = {
+        type = "git";
+        url = "https://github.com/hyprwm/Hyprland";
+        submodules = true;
+      };
+      catppuccin-bat = {
+          url = "github:catppuccin/bat";
+          flake = false;
+        };
+        catppuccin-cava = {
+          url = "github:catppuccin/cava";
+          flake = false;
+        };
+        catppuccin-starship = {
+          url = "github:catppuccin/starship";
+          flake = false;
+        };
+
+        spicetify-nix.url = "github:gerg-l/spicetify-nix";
+        spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { self, nix-ld,nixpkgs,home-manager, ... }@inputs: {
@@ -25,7 +53,7 @@
           ./bibbash.nix
 
           nix-ld.nixosModules.nix-ld
-          # The module in this repository defines a new module under (programs.nix-ld.dev) instead of (programs.nix-ld) 
+          # The module in this repository defines a new module under (programs.nix-ld.dev) instead of (programs.nix-ld)
           # to not collide with the nixpkgs version.
           { programs.nix-ld.dev.enable = true; }
 
