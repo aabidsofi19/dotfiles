@@ -1,5 +1,5 @@
 {
-  description = "A simple NixOS flake";
+  description = "My personal NixOS configuration";
 
   inputs = {
     # NixOS official package source, using the nixos-23.11 branch here
@@ -13,63 +13,51 @@
     # this line assume that you also have nixpkgs as an input
     nix-ld.inputs.nixpkgs.follows = "nixpkgs";
 
-      hypr-contrib.url = "github:hyprwm/contrib";
-      hyprpicker.url = "github:hyprwm/hyprpicker";
+    hypr-contrib.url = "github:hyprwm/contrib";
+    hyprpicker.url = "github:hyprwm/hyprpicker";
 
-      alejandra.url = "github:kamadorueda/alejandra/3.0.0";
+    alejandra.url = "github:kamadorueda/alejandra/3.0.0";
 
-      # nix-gaming.url = "github:fufexan/nix-gaming";
+    # nix-gaming.url = "github:fufexan/nix-gaming";
 
-      hyprland = {
-        type = "git";
-        url = "https://github.com/hyprwm/Hyprland";
-        submodules = true;
-      };
-      catppuccin-bat = {
-          url = "github:catppuccin/bat";
-          flake = false;
-        };
-        catppuccin-cava = {
-          url = "github:catppuccin/cava";
-          flake = false;
-        };
-        catppuccin-starship = {
-          url = "github:catppuccin/starship";
-          flake = false;
-        };
-
-        spicetify-nix.url = "github:gerg-l/spicetify-nix";
-        spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
-  };
-
-  outputs = { self, nix-ld,nixpkgs,home-manager, ... }@inputs: {
-    # Please replace my-nixos with your hostname
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-          # Import the previous configuration.nix we used,
-          # so the old configuration file still takes effect
-          ./configuration.nix
-          ./bibbash.nix
-
-          nix-ld.nixosModules.nix-ld
-          # The module in this repository defines a new module under (programs.nix-ld.dev) instead of (programs.nix-ld)
-          # to not collide with the nixpkgs version.
-          { programs.nix-ld.dev.enable = true; }
-
-          # make home-manager as a module of nixos
-          # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-            home-manager.users.aabid = import ./home.nix;
-
-            # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
-          }
-
-      ];
+    hyprland = {
+    type = "git";
+    url = "https://github.com/hyprwm/Hyprland";
+    submodules = true;
     };
+    catppuccin-bat = {
+        url = "github:catppuccin/bat";
+        flake = false;
+    };
+    catppuccin-cava = {
+        url = "github:catppuccin/cava";
+        flake = false;
+    };
+    catppuccin-starship = {
+        url = "github:catppuccin/starship";
+        flake = false;
+    };
+
+    spicetify-nix.url = "github:gerg-l/spicetify-nix";
+    spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
+
+  outputs = { self, nix-ld,nixpkgs,home-manager, ... }@inputs:
+    let
+      username = "aabid";
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+      lib = nixpkgs.lib;
+    in {
+      nixosConfigurations = {
+        desktop = nixpkgs.lib.nixosSystem {
+            inherit system;
+            modules = [ (import ./hosts/desktop) ];
+            specialArgs = { host="desktop"; inherit self inputs username ; };
+        };
+      };
+    };
 }
