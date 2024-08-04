@@ -25,5 +25,6 @@
     ++ [(import ./vscodium.nix)]                  # vscode forck
     ++ [(import ./waybar)]                        # status bar
     ++ [(import ./zsh.nix)]                       # shell
+    ++ [(import ./stylix.nix)]                    # Global Styling
     ++ [(import ./playwright.nix)] ;              # browser automation and testing
 }

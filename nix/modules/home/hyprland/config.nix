@@ -1,8 +1,23 @@
-{ ... }:
+{inputs,pkgs, ... }:
 {
   wayland.windowManager.hyprland = {
-    settings = {
+   plugins = [
+       inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+       # ...
+     ];
 
+    settings = {
+    layerrule = "blur,waybar";
+
+      plugin = {
+          hyprexpo = {
+              columns = "3" ;
+              gap_size = "5" ;
+              bg_col = "rgb(111111)" ;
+              workspace_method = "center current" ; # [center/first] [workspace] e.g. first 1 or center m+1
+
+          };
+      };
       # autostart
       exec-once = [
         "systemctl --user import-environment &"
@@ -36,8 +51,8 @@
         gaps_in = 0;
         gaps_out = 0;
         border_size = 2;
-        "col.active_border" = "rgb(cba6f7) rgb(94e2d5) 45deg";
-        "col.inactive_border" = "0x00000000";
+        # "col.active_border" = "rgb(cba6f7) rgb(94e2d5) 45deg";
+        # "col.inactive_border" = "0x00000000";
         border_part_of_window = false;
         no_border_on_floating = false;
       };
@@ -94,7 +109,7 @@
         shadow_offset = "0 2";
         shadow_range = 20;
         shadow_render_power = 3;
-        "col.shadow" = "rgba(00000055)";
+        # "col.shadow" = "rgba(00000055)";
       };
 
       animations = {
@@ -126,6 +141,10 @@
       };
 
       bind = [
+
+        #show overview on mainMod + tab
+       "$mainMod, TAB ,  hyprexpo:expo, toggle"
+
         # show keybinds list
         "$mainMod, F1, exec, show-keybinds"
 
@@ -301,4 +320,8 @@
       }
     ";
   };
+
+
+
+
 }

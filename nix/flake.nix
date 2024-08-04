@@ -25,6 +25,10 @@
     url = "https://github.com/hyprwm/Hyprland";
     submodules = true;
     };
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
     catppuccin-bat = {
         url = "github:catppuccin/bat";
         flake = false;
@@ -38,11 +42,19 @@
         flake = false;
     };
 
+    stylix = {
+      url = "github:donovanglover/stylix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
+
     spicetify-nix.url = "github:gerg-l/spicetify-nix";
     spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nix-ld,nixpkgs,home-manager, ... }@inputs:
+  outputs = { self, stylix,nix-ld,nixpkgs,home-manager, ... }@inputs:
     let
       username = "aabid";
       system = "x86_64-linux";
@@ -55,7 +67,7 @@
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
             inherit system;
-            modules = [ (import ./hosts/desktop) ];
+            modules = [ stylix.nixosModules.stylix (import ./hosts/desktop)   ];
             specialArgs = { host="desktop"; inherit self inputs username ; };
         };
       };

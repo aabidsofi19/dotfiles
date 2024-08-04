@@ -75,10 +75,13 @@
     todo                  # CLI todo list
     slack                 # Team communication
     zoom-us               # Video conferencing
-    google-chrome         # Web browser
     clickup               # Project management
     jekyll                # Static site generator
     hugo                  # Another static site generator
+
+    #Browsing
+    firefox
+    google-chrome         # Web browser
 
     # Network Tools
     wget                  # File downloader
