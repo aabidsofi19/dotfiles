@@ -1,8 +1,8 @@
-{ ... }: 
+{ ... }:
 {
   wayland.windowManager.hyprland = {
     settings = {
-      
+
       # autostart
       exec-once = [
         "systemctl --user import-environment &"
@@ -21,7 +21,7 @@
 
       input = {
         kb_layout = "us,fr";
-        kb_options ="grp:alt_caps_toggle"; 
+        kb_options ="grp:alt_caps_toggle";
         numlock_by_default = true;
         follow_mouse = 1;
         sensitivity = 0;
@@ -76,7 +76,7 @@
 
         blur = {
           enabled = true;
-          size = 1;
+          size = 4;
           passes = 1;
           # size = 4;
           # passes = 2;

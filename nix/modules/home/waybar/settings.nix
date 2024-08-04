@@ -1,7 +1,7 @@
 { ... }:
 {
   programs.waybar.settings.mainBar = {
-    position= "bottom";
+    position= "top";
     layer= "top";
     height= 5;
     margin-top= 0;
@@ -9,18 +9,18 @@
     margin-left= 0;
     margin-right= 0;
     modules-left= [
-        "custom/launcher" 
+        "custom/launcher"
         "hyprland/workspaces"
     ];
     modules-center= [
         "clock"
     ];
     modules-right= [
-        "tray" 
+        "tray"
         "cpu"
         "memory"
         "disk"
-        "pulseaudio" 
+        "pulseaudio"
         "battery"
         "network"
         "custom/notification"
@@ -110,7 +110,7 @@
     "custom/launcher"= {
         format= "";
         on-click= "fuzzel";
-        on-click-right= "wallpaper-picker"; 
+        on-click-right= "wallpaper-picker";
         tooltip= "false";
     };
     "custom/notification" = {
