@@ -22,6 +22,7 @@
     gh                    # GitHub CLI
     lazygit               # Terminal UI for git commands
     gitui                 # Terminal UI for git
+    helix                 # helix text editor
 
     # System Utilities
     btop                  # Resource monitor
@@ -38,6 +39,8 @@
     poweralertd           # Power management daemon
     gparted               # Partition editor
     bleachbit             # System cleaner
+    blueman               # Blutooh mananger
+    udiskie               # Auto mount usb devices
 
     # File Management
     nautilus              # GNOME file manager

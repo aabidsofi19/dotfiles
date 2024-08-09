@@ -1,4 +1,4 @@
-{inputs, username, host, ...}: {
+{inputs, username,lib, host, ...}: {
   imports =
        # [(import ./aseprite/aseprite.nix)]       # pixel art editor
     # [(import ./audacious/audacious.nix)]          # music player
@@ -11,7 +11,7 @@
     ++ [(import ./gaming.nix)]                    # packages related to gaming
     ++ [(import ./git.nix)]                       # version control
     ++ [(import ./gtk.nix)]                       # gtk theme
-    ++ [(import ./hyprland)]                      # window manager
+    # ++ [(import ./hyprland)]                      # window manager
     ++ [(import ./kitty.nix)]                     # terminal
     ++ [(import ./swaync/swaync.nix)]             # notification deamon
     # ++ [(import ./micro.nix)]                     # nano replacement
@@ -27,4 +27,14 @@
     ++ [(import ./zsh.nix)]                       # shell
     ++ [(import ./stylix.nix)]                    # Global Styling
     ++ [(import ./playwright.nix)] ;              # browser automation and testing
+
+
+
+    home.sessionPath = ["~/go/bin"];
+    home.file.".npmrc".text = lib.generators.toINIWithGlobalSection {} {
+      globalSection = {
+        prefix = "/home/aabid/.npm-packages";
+      };
+    };
+
 }

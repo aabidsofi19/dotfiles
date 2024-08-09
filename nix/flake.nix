@@ -52,9 +52,14 @@
 
     spicetify-nix.url = "github:gerg-l/spicetify-nix";
     spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixos-cosmic = {
+       url = "github:lilyinstarlight/nixos-cosmic";
+       inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, stylix,nix-ld,nixpkgs,home-manager, ... }@inputs:
+  outputs = { self,nixos-cosmic, stylix,nix-ld,nixpkgs,home-manager, ... }@inputs:
     let
       username = "aabid";
       system = "x86_64-linux";
@@ -67,7 +72,17 @@
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
             inherit system;
-            modules = [ stylix.nixosModules.stylix (import ./hosts/desktop)   ];
+            modules = [
+            {
+                nix.settings = {
+                substituters = [ "https://cosmic.cachix.org/" ];
+                trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+                };
+            }
+            nixos-cosmic.nixosModules.default
+            stylix.nixosModules.stylix
+            (import ./hosts/desktop)
+            ];
             specialArgs = { host="desktop"; inherit self inputs username ; };
         };
       };
