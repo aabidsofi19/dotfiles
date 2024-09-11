@@ -29,6 +29,8 @@
     gnumake
     postgresql
     bluez
+
+    inputs.zen-browser.packages."${system}".specific
   ];
 
   # Set your time zone.

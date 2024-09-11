@@ -157,7 +157,11 @@
     gtrash                # Trash management utility
     man-pages             # Extra man pages
 
+    minikube
+    transmission_4-gtk
+
     # Custom Packages
     inputs.alejandra.defaultPackage.${system} # Nix code formatter
+    inputs.zen-browser.packages."${system}".specific
   ];
 }
