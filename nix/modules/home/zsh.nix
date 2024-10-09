@@ -1,4 +1,4 @@
-{ hostname, config, pkgs, host, ...}: 
+{ hostname, config, pkgs, host, ...}:
 {
   programs.zsh = {
     enable = true;
@@ -66,6 +66,8 @@
       # python
       piv = "python -m venv .venv";
       psv = "source .venv/bin/activate";
+
+      vi = "nvim";
     };
   };
 
