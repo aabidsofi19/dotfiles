@@ -23,6 +23,8 @@
     lazygit               # Terminal UI for git commands
     gitui                 # Terminal UI for git
     helix                 # helix text editor
+    zig                   # zig language and toolchain
+    zls                   # zig language server and lsp support
 
     # System Utilities
     btop                  # Resource monitor
@@ -41,9 +43,12 @@
     bleachbit             # System cleaner
     blueman               # Blutooh mananger
     udiskie               # Auto mount usb devices
+    mission-center        # gtk4 systemmonitor app
+
 
     # File Management
     nautilus              # GNOME file manager
+    spacedrive            # Open source file manager, powered by a virtual distributed filesystem
     dolphin               # KDE file manager
     ranger                # Terminal file manager
     yazi                  # Another terminal file manager
@@ -163,5 +168,10 @@
     # Custom Packages
     inputs.alejandra.defaultPackage.${system} # Nix code formatter
     inputs.zen-browser.packages."${system}".specific
+
+    ## Gaming
+    rpcs3
+    ryujinx
+    cemu
   ];
 }

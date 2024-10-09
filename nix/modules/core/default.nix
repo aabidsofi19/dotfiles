@@ -13,5 +13,6 @@
     ++ [ (import ./user.nix) ]
     ++ [ (import ./wayland.nix) ]
     ++ [ (import ./podman.nix)]
+    ++ [ (import ./gnome.nix)]
     ++ [ (import ./virtualization.nix) ];
 }
