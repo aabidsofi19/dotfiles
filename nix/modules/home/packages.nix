@@ -87,6 +87,7 @@
     jekyll                # Static site generator
     hugo                  # Another static site generator
 
+
     #Browsing
     firefox
     google-chrome         # Web browser

@@ -13,6 +13,15 @@
       DISABLE_MAGIC_FUNCTIONS=true
       export "MICRO_TRUECOLOR=1"
     '';
+
+    initExtra = ''
+            export PNPM_HOME="$HOME/.local/share/pnpm"
+            export PATH="$PNPM_HOME:$PATH"
+            export PATH="$HOME/.scripts:$PATH"
+            export PATH="$HOME/.local/bin:$PATH"
+            export PATH="$HOME/.cargo/bin:$PATH"
+            export PATH="$HOME/go/bin:$PATH"
+         '';
     shellAliases = {
       # record = "wf-recorder --audio=alsa_output.pci-0000_08_00.6.analog-stereo.monitor -f $HOME/Videos/$(date +'%Y%m%d%H%M%S_1.mp4')";
 
