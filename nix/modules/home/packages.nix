@@ -25,6 +25,13 @@
     helix                 # helix text editor
     zig                   # zig language and toolchain
     zls                   # zig language server and lsp support
+    pgadmin4             # PostgreSQL administration tool
+    jetbrains.datagrip
+    jetbrains.webstorm
+    tailscale             # Tailscale VPN client
+    ngrok
+    gitbutler            # Git client for simultaneous branches on top of your existing workflow
+    
 
     # System Utilities
     btop                  # Resource monitor
@@ -66,6 +73,7 @@
     zathura               # Minimalistic document viewer
     tdf                   # CLI PDF viewer
     glow                  # Markdown viewer
+    memos                 # A lightweight, self-hosted memo hub
 
     # Multimedia
     mpv                   # Video player
@@ -162,6 +170,9 @@
     libnotify             # Desktop notifications library
     gtrash                # Trash management utility
     man-pages             # Extra man pages
+    motrix                # Download manager
+    appimage-run          # run appimages
+  
 
     minikube
     transmission_4-gtk
@@ -174,5 +185,7 @@
     rpcs3
     ryujinx
     cemu
+    # retroarch
+retroarchFull
   ];
 }

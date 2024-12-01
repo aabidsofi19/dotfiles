@@ -9,7 +9,7 @@
     mountPoint = "/keybase"; # default mount point
   };
 
-  environment.systemPackages = with pkgs; [
+  home.packages = with pkgs; [
     keybase
     keybase-gui  # if you want the GUI client
   ];

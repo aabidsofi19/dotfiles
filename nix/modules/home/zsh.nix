@@ -25,6 +25,9 @@
     shellAliases = {
       # record = "wf-recorder --audio=alsa_output.pci-0000_08_00.6.analog-stereo.monitor -f $HOME/Videos/$(date +'%Y%m%d%H%M%S_1.mp4')";
 
+      #nix-dev runs the shell name with root path to flake prepended
+      
+
       # Utils
       c = "clear";
       cd = "z";

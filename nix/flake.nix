@@ -88,5 +88,10 @@
             specialArgs = { host="desktop"; inherit self inputs username ; };
         };
       };
+
+      # Import development shells
+      devShells.${system} = import ./shells {
+        inherit pkgs lib inputs;
+      };
     };
 }
