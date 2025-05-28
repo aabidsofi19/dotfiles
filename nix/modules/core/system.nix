@@ -30,7 +30,8 @@
     postgresql
     bluez
 
-    inputs.zen-browser.packages."${system}".specific
+    # inputs.zen-browser.packages."${system}".specific
+    inputs.ghostty.packages."${system}".default
   ];
 
   # Set your time zone.

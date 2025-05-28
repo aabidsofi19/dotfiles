@@ -2,8 +2,11 @@
 {
   fonts.fontconfig.enable = true;
   home.packages = [
-    pkgs.nerdfonts
-    (pkgs.nerdfonts.override { fonts = [ "FiraCode"  "JetBrainsMono" "Noto" ]; })
+    # pkgs.nerdfonts
+    # (pkgs.nerdfonts.override { fonts = [ "FiraCode"  "JetBrainsMono" "Noto" ]; })
+    pkgs.nerd-fonts.fira-code
+    pkgs.nerd-fonts.jetbrains-mono
+    pkgs.nerd-fonts.noto
     pkgs.twemoji-color-font
     pkgs.helvetica-neue-lt-std
     pkgs.noto-fonts-emoji

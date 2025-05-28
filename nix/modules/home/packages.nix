@@ -8,10 +8,12 @@
     gcc                   # GNU Compiler Collection
     gnumake               # GNU Make build tool
     # jdk17                 # Java Development Kit 17
-    python3               # Python programming language
+    python3Full               # Python programming language
     nodejs                # JavaScript runtime
     rustup                # Rust toolchain installer
-    go_1_21               # Go programming language
+    go_1_24               # Go programming language
+    golangci-lint         # fast lint runner for go
+    gopls                 # go language server
     vscode-fhs            # Visual Studio Code (FHS version)
     zed-editor            # Zed code editor
     nil                   # Nix language server
@@ -19,6 +21,11 @@
     nodePackages.npm      # Node Package Manager
     nodePackages.pnpm     # Fast, disk space efficient package manager
     nodePackages.eslint_d # JavaScript linter
+    python312Packages.pyyaml
+    open-policy-agent
+    kind
+    kubectl
+
     gh                    # GitHub CLI
     lazygit               # Terminal UI for git commands
     gitui                 # Terminal UI for git
@@ -28,10 +35,10 @@
     pgadmin4             # PostgreSQL administration tool
     jetbrains.datagrip
     jetbrains.webstorm
-    tailscale             # Tailscale VPN client
+    # tailscale             # Tailscale VPN client
     ngrok
-    gitbutler            # Git client for simultaneous branches on top of your existing workflow
-    
+    # gitbutler            # Git client for simultaneous branches on top of your existing workflow
+
 
     # System Utilities
     btop                  # Resource monitor
@@ -84,6 +91,8 @@
     simplescreenrecorder  # Screen recording software
     playerctl             # Media player controller
     soundwireserver       # Audio streaming to Android
+    noisetorch            # Noise suppression for microphone
+    easyeffects           # Audio effects for PulseAudio
 
     # Productivity
     # libreoffice           # Office suite
@@ -172,20 +181,20 @@
     man-pages             # Extra man pages
     motrix                # Download manager
     appimage-run          # run appimages
-  
+
 
     minikube
     transmission_4-gtk
 
     # Custom Packages
     inputs.alejandra.defaultPackage.${system} # Nix code formatter
-    inputs.zen-browser.packages."${system}".specific
+    # inputs.zen-browser.packages."${system}".specific
 
     ## Gaming
     rpcs3
     ryujinx
     cemu
     # retroarch
-retroarchFull
+# retroarchFull
   ];
 }

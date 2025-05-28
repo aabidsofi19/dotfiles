@@ -30,7 +30,7 @@
    gnomeExtensions.appindicator
    gnomeExtensions.dash-to-dock
    gnomeExtensions.caffeine
-   gnome.gnome-tweaks
+   gnome-tweaks
  ];
 
  programs.dconf.enable = true;

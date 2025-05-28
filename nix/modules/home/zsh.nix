@@ -80,6 +80,10 @@
       psv = "source .venv/bin/activate";
 
       vi = "nvim";
+
+     mcprom="ssh -i ~/.ssh/metal root@c3-medium-x86-03-meshery kubectl port-forward -n prod-monitoring svc/prometheus-kube-prometheus-prometheus 9090:9090 --address 139.178.83.85";
+     mcgraf="ssh -i ~/.ssh/metal root@c3-medium-x86-03-meshery kubectl port-forward -n prod-monitoring svc/prometheus-grafana 8080:80 --address 139.178.83.85"  ;
+
     };
   };
 

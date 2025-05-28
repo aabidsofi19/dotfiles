@@ -24,7 +24,7 @@
     # ++ [(import ./vscodium.nix)]                  # vscode forck
     # ++ [(import ./waybar)]                        # status bar
     ++ [(import ./zsh.nix)]                       # shell
-    ++ [(import ./stylix.nix)]                    # Global Styling
+    #++ [(import ./stylix.nix)]                    # Global Styling
     ++ [(import ./dconf.nix)]                     # dconf settings
     ++ [(import ./nvim/default.nix)]                     # neovim editor
     ++ [(import ./keybase.nix)]

@@ -2,6 +2,12 @@
 {
   networking = {
     hostName = "nixos";
+    hosts = {
+      
+     "147.75.47.9" =    "c3-medium-x86-01-meshery";
+     "147.28.149.165" = "c3-medium-x86-02-meshery";
+     "139.178.83.85" =	"c3-medium-x86-03-meshery" ;
+    };
     networkmanager.enable = true;
     nameservers = [ "1.1.1.1" ];
     firewall = {
