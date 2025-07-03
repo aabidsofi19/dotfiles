@@ -89,6 +89,22 @@
             # nixos-cosmic.nixosModules.default
             stylix.nixosModules.stylix
             (import ./hosts/desktop)
+            {
+              security.pam.loginLimits = [
+                {
+                  domain = "*";
+                  type = "hard";
+                  item = "memlock";
+                  value = "unlimited";
+                }
+                {
+                  domain = "*";
+                  type = "soft";
+                  item = "memlock";
+                  value = "unlimited";
+                }
+              ];
+            }
             ];
             specialArgs = { host="desktop"; inherit self inputs username ; };
         };

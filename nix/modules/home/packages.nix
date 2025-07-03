@@ -22,6 +22,7 @@
     nodePackages.pnpm     # Fast, disk space efficient package manager
     nodePackages.eslint_d # JavaScript linter
     python312Packages.pyyaml
+    python312Packages.pycryptodome
     open-policy-agent
     kind
     kubectl
@@ -191,10 +192,7 @@
     # inputs.zen-browser.packages."${system}".specific
 
     ## Gaming
-    rpcs3
-    ryujinx
-    cemu
-    # retroarch
+       # retroarch
 # retroarchFull
   ];
 }

@@ -47,4 +47,7 @@
   #   stylix.enable =true;
 
   powerManagement.cpuFreqGovernor = "performance";
+
+  
+  programs.steam.enable = true;
 }
