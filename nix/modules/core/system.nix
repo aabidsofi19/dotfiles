@@ -32,6 +32,10 @@
     postgresql
     bluez
 
+
+    
+    android-studio
+    android-tools
     # inputs.zen-browser.packages."${system}".specific
     inputs.ghostty.packages."${system}".default
   ];
