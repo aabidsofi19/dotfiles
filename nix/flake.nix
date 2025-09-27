@@ -42,14 +42,6 @@
         flake = false;
     };
 
-    stylix = {
-      url = "github:donovanglover/stylix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-      };
-    };
-
     spicetify-nix.url = "github:gerg-l/spicetify-nix";
     spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -64,9 +56,12 @@
     ghostty = {
       url = "github:ghostty-org/ghostty";
     };
+    
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+
   };
 
-  outputs = { self,ghostty, stylix,nix-ld,nixpkgs,home-manager, ... }@inputs:
+  outputs = { self,ghostty,nix-ld,nixpkgs,home-manager, ... }@inputs:
     let
       username = "aabid";
       system = "x86_64-linux";
@@ -87,7 +82,6 @@
             #     };
             # }
             # nixos-cosmic.nixosModules.default
-            stylix.nixosModules.stylix
             (import ./hosts/desktop)
             {
               security.pam.loginLimits = [

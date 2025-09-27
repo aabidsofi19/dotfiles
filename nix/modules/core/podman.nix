@@ -25,7 +25,7 @@
     docker-compose # start group of containers for dev
     podman-desktop
     docker
-    #podman-compose # start group of containers for dev
+    podman-compose # start group of containers for dev
   ];
 
   

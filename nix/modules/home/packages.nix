@@ -64,7 +64,6 @@
     # File Management
     nautilus              # GNOME file manager
     spacedrive            # Open source file manager, powered by a virtual distributed filesystem
-    dolphin               # KDE file manager
     ranger                # Terminal file manager
     yazi                  # Another terminal file manager
     fd                    # Alternative to 'find'
