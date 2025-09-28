@@ -11,7 +11,7 @@
     ++ [(import ./gaming.nix)]                    # packages related to gaming
     ++ [(import ./git.nix)]                       # version control
     ++ [(import ./gtk.nix)]                       # gtk theme
-    # ++ [(import ./hyprland)]                      # window manager
+    ++ [(import ./hyprland)]                      # window manager
     ++ [(import ./kitty.nix)]                     # terminal
     # ++ [(import ./swaync/swaync.nix)]             # notification deamon
     # ++ [(import ./micro.nix)]                     # nano replacement
@@ -27,6 +27,7 @@
     ++ [(import ./dconf.nix)]                     # dconf settings
     ++ [(import ./nvim/default.nix)]                     # neovim editor
     ++ [(import ./keybase.nix)]
+    ++ [(import ./caelestia.nix)]                 # caelestia shell 
     # ++ [(import ./playwright.nix)]
      ;              # browser automation and testing
 

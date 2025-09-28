@@ -5,6 +5,7 @@
 {
   home.packages = with pkgs; [
     # Development Tools
+    fish
     gcc                   # GNU Compiler Collection
     gnumake               # GNU Make build tool
     # jdk17                 # Java Development Kit 17
@@ -188,6 +189,11 @@
 
     # Custom Packages
     inputs.alejandra.defaultPackage.${system} # Nix code formatter
+
+    inputs.caelestia-shell.packages.${system}.default
+    inputs.caelestia-cli.packages.${system}.default
+
+    
     # inputs.zen-browser.packages."${system}".specific
 
     ## Gaming

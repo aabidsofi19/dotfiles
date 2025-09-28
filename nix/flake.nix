@@ -53,6 +53,16 @@
     # zen-browser.url = "github:MarceColl/zen-browser-flake";
 
 
+    caelestia-shell = {
+      url = "github:caelestia-dots/shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    caelestia-cli = {
+      url = "github:caelestia-dots/cli";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     ghostty = {
       url = "github:ghostty-org/ghostty";
     };
@@ -61,7 +71,7 @@
 
   };
 
-  outputs = { self,ghostty,nix-ld,nixpkgs,home-manager, ... }@inputs:
+  outputs = { self,ghostty,caelestia-cli,caelestia-shell,nix-ld,nixpkgs,home-manager, ... }@inputs:
     let
       username = "aabid";
       system = "x86_64-linux";
