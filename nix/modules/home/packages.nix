@@ -4,6 +4,11 @@
 # in
 {
   home.packages = with pkgs; [
+
+    spotify               # Music streaming service
+    #spotify-adblock       # Ad blocker for Spotify
+    spicetify-cli            # Spotify client for Linux
+
     # Development Tools
     fish
     gcc                   # GNU Compiler Collection
