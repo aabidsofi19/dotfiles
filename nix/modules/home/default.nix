@@ -27,7 +27,7 @@
     ++ [(import ./dconf.nix)]                     # dconf settings
     ++ [(import ./nvim/default.nix)]                     # neovim editor
     ++ [(import ./keybase.nix)]
-    ++ [(import ./caelestia.nix)]                 # caelestia shell 
+    # ++ [(import ./caelestia.nix)]                 # caelestia shell 
     # ++ [(import ./playwright.nix)]
      ;              # browser automation and testing
 

@@ -7,7 +7,7 @@
      ];
 
     settings = {
-    layerrule = "blur,waybar";
+      layerrule = "blur,waybar";
 
       plugin = {
           hyprexpo = {
@@ -20,17 +20,22 @@
       };
       # autostart
       exec-once = [
-        "dbus-update-activation-environment --systemd --all"
-        "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP "
-        "hyprctl setcursor rose-pine-hyprcursor 22"
+        "systemctl --user import-environment &"
+        "hash dbus-update-activation-environment 2>/dev/null &"
+        "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &"
+        "nm-applet &"
+        "wl-clip-persist --clipboard both"
+        "swaybg -m fill -i $(find ~/Pictures/wallpapers/ -maxdepth 1 -type f) &"
+        "hyprctl setcursor Nordzy-cursors 22 &"
+        "poweralertd &"
+        "waybar &"
+        "swaync &"
+        "wl-paste --watch cliphist store &"
         "hyprlock"
-        "waybar"
-        "wl-paste --type text --watch cliphist store"
-        "wl-paste --type image --watch cliphist store"
       ];
 
       input = {
-        kb_layout = "us";
+        kb_layout = "us,fr";
         kb_options ="grp:alt_caps_toggle";
         numlock_by_default = true;
         follow_mouse = 1;
@@ -46,6 +51,8 @@
         gaps_in = 0;
         gaps_out = 0;
         border_size = 2;
+        # "col.active_border" = "rgb(cba6f7) rgb(94e2d5) 45deg";
+        # "col.inactive_border" = "0x00000000";
         border_part_of_window = false;
         no_border_on_floating = false;
       };
@@ -78,11 +85,16 @@
 
       decoration = {
         rounding = 0;
+        # active_opacity = 0.90;
+        # inactive_opacity = 0.90;
+        # fullscreen_opacity = 1.0;
 
         blur = {
           enabled = true;
           size = 4;
           passes = 1;
+          # size = 4;
+          # passes = 2;
           brightness = 1;
           contrast = 1.400;
           ignore_opacity = true;
@@ -90,39 +102,76 @@
           new_optimizations = true;
           xray = true;
         };
+
+        drop_shadow = true;
+
+        shadow_ignore_window = true;
+        shadow_offset = "0 2";
+        shadow_range = 20;
+        shadow_render_power = 3;
+        # "col.shadow" = "rgba(00000055)";
       };
 
       animations = {
         enabled = true;
+
+        bezier = [
+          "fluent_decel, 0, 0.2, 0.4, 1"
+          "easeOutCirc, 0, 0.55, 0.45, 1"
+          "easeOutCubic, 0.33, 1, 0.68, 1"
+          "easeinoutsine, 0.37, 0, 0.63, 1"
+        ];
+
+        animation = [
+          # Windows
+          "windowsIn, 1, 3, easeOutCubic, popin 30%" # window open
+          "windowsOut, 1, 3, fluent_decel, popin 70%" # window close.
+          "windowsMove, 1, 2, easeinoutsine, slide" # everything in between, moving, dragging, resizing.
+
+          # Fade
+          "fadeIn, 1, 3, easeOutCubic" # fade in (open) -> layers and windows
+          "fadeOut, 1, 2, easeOutCubic" # fade out (close) -> layers and windows
+          "fadeSwitch, 0, 1, easeOutCirc" # fade on changing activewindow and its opacity
+          "fadeShadow, 1, 10, easeOutCirc" # fade on changing activewindow for shadows
+          "fadeDim, 1, 4, fluent_decel" # the easing of the dimming of inactive windows
+          "border, 1, 2.7, easeOutCirc" # for animating the border's color switch speed
+          "borderangle, 1, 30, fluent_decel, once" # for animating the border's gradient angle - styles: once (default), loop
+          "workspaces, 1, 4, easeOutCubic, fade" # styles: slide, slidevert, fade, slidefade, slidefadevert
+        ];
       };
 
       bind = [
 
         #show overview on mainMod + tab
-        "$mainMod, TAB ,  hyprexpo:expo, toggle"
+       "$mainMod, TAB ,  hyprexpo:expo, toggle"
 
         # show keybinds list
         "$mainMod, F1, exec, show-keybinds"
 
         # keybindings
-        "$mainMod, T, exec, ghostty"
+        "$mainMod, Return, exec, kitty"
+        "ALT, Return, exec, kitty --title float_kitty"
+        "$mainMod SHIFT, Return, exec, kitty --start-as=fullscreen -o 'font_size=16'"
         "$mainMod, B, exec, hyprctl dispatch exec '[workspace 1 silent] floorp'"
         "$mainMod, Q, killactive,"
         "$mainMod, F, fullscreen, 0"
         "$mainMod SHIFT, F, fullscreen, 1"
         "$mainMod, Space, togglefloating,"
-        "$mainMod, D, exec, rofi -show drun"
-        "$mainMod, W, exec, rofi -show window"
-        "$mainMod, SHIFT,P exec rofi -show power-menu -modi power-menu:rofi-power-menu"
+        "$mainMod, D, exec, fuzzel"
+        "$mainMod SHIFT, D, exec, hyprctl dispatch exec '[workspace 4 silent] discord --enable-features=UseOzonePlatform --ozone-platform=wayland'"
         "$mainMod SHIFT, S, exec, hyprctl dispatch exec '[workspace 5 silent] SoundWireServer'"
+        "$mainMod, Escape, exec, swaylock"
+        "$mainMod SHIFT, Escape, exec, shutdown-script"
         "$mainMod, P, pseudo,"
         "$mainMod, J, togglesplit,"
         "$mainMod, E, exec, nautilus"
+        "$mainMod SHIFT, B, exec, pkill -SIGUSR1 .waybar-wrapped"
         "$mainMod, C ,exec, hyprpicker -a"
+        "$mainMod, W,exec, wallpaper-picker"
         "$mainMod SHIFT, W, exec, vm-start"
 
         # screenshot
-        "$mainMod, S,  exec, grimblast --notify --cursor --freeze save area ~/Pictures/$(date +'%Y-%m-%d-At-%Ih%Mm%Ss').png"
+        "$mainMod, Print, exec, grimblast --notify --cursor --freeze save area ~/Pictures/$(date +'%Y-%m-%d-At-%Ih%Mm%Ss').png"
         ",Print, exec, grimblast --notify --cursor --freeze copy area"
 
         # switch focus
@@ -181,9 +230,14 @@
         "$mainMod, mouse_down, workspace, e-1"
         "$mainMod, mouse_up, workspace, e+1"
 
+        # laptop brigthness
+        ",XF86MonBrightnessUp, exec, brightnessctl set 5%+"
+        ",XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+        "$mainMod, XF86MonBrightnessUp, exec, brightnessctl set 100%+"
+        "$mainMod, XF86MonBrightnessDown, exec, brightnessctl set 100%-"
 
         # clipboard manager
-        "$mainMod, V, exec, cliphist list | rofi --dmenu | cliphist decode | wl-copy"
+        "$mainMod, V, exec, cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"
       ];
 
       # mouse binding
@@ -194,6 +248,30 @@
 
       # windowrule
       windowrule = [
+        "float,imv"
+        "center,imv"
+        "size 1200 725,imv"
+        "float,mpv"
+        "center,mpv"
+        "tile,Aseprite"
+        "size 1200 725,mpv"
+        "float,title:^(float_kitty)$"
+        "center,title:^(float_kitty)$"
+        "size 950 600,title:^(float_kitty)$"
+        "float,audacious"
+        "workspace 8 silent, audacious"
+        # "pin,wofi"
+        # "float,wofi"
+        # "noborder,wofi"
+        "tile, neovide"
+        "idleinhibit focus,mpv"
+        "float,udiskie"
+        "float,title:^(Transmission)$"
+        "float,title:^(Volume Control)$"
+        "float,title:^(Firefox — Sharing Indicator)$"
+        "move 0 0,title:^(Firefox — Sharing Indicator)$"
+        "size 700 450,title:^(Volume Control)$"
+        "move 40 55%,title:^(Volume Control)$"
       ];
 
       # windowrulev2
@@ -224,6 +302,7 @@
         "float,title:^(branchdialog)$"
         "float,title:^(Confirm to replace files)$"
         "float,title:^(File Operation Progress)$"
+
         "opacity 0.0 override,class:^(xwaylandvideobridge)$"
         "noanim,class:^(xwaylandvideobridge)$"
         "noinitialfocus,class:^(xwaylandvideobridge)$"
@@ -242,33 +321,7 @@
     ";
   };
 
-  # Notification daemon   
-  services.mako = {
-    enable = true;
-    anchor = "top-right";
-    backgroundColor = "#1e1e2e";
-    textColor = "#cdd6f4";
-    borderColor = "#89b4fa";
-    borderRadius = 8;
-    borderSize = 2;
-    defaultTimeout = 5000;
-    padding = "8,10";
-    font = "JetBrainsMono Nerd Font 11";
-  };
 
 
-  # Automatically start Hyprpaper with your session
-  services.hyprpaper = {
-    enable = true;
-    settings = {
-      preload = [
-        "~/Pictures/Wallpapers/aesthetic-forest.png"
-      ];
-
-      wallpaper = [
-        ",~/Pictures/Wallpapers/aesthetic-forest.png"
-      ];
-    };
-  };
 
 }

@@ -2,10 +2,9 @@
 {
   home.packages = with pkgs; [
     # swww
+    swaybg
     #inputs.hypr-contrib.packages.${pkgs.system}.grimblast
     hyprpicker
-    hyprpaper
-    waybar
     hyprlock
     grim
     slurp
@@ -28,12 +27,7 @@
     wayland
     direnv
     rose-pine-hyprcursor
-    rofi-wayland
-    rofi-emoji
-    rofi-calc
-    rofi-power-menu
   ];
-
   # systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
   wayland.windowManager.hyprland = {
     enable = true;
@@ -46,5 +40,5 @@
   };
 
 
-  home.file.".config/waybar".source = ./config/waybar;
+  home.file.".config/hypr".source = ./config;
 }

@@ -1,0 +1,120 @@
+* {
+    /* Catppuccin Mocha Colors */
+    bg: #1e1e2e;
+    bg-alt: #181825;
+    fg: #cdd6f4;
+    fg-alt: #bac2de;
+    accent: #89b4fa;
+    urgent: #f38ba8;
+    selected: #313244;
+    
+    background-color: transparent;
+    text-color: @fg;
+    font: "SF Pro Display 13";
+}
+
+window {
+    transparency: "real";
+    background-color: @bg;
+    border: 1px;
+    border-color: #313244;
+    border-radius: 12px;
+    width: 640px;
+    location: center;
+    y-offset: -200;
+    padding: 0px;
+}
+
+mainbox {
+    children: [inputbar, listview];
+    spacing: 0px;
+    padding: 16px;
+    background-color: transparent;
+}
+
+inputbar {
+    children: [prompt, entry];
+    spacing: 12px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    background-color: @selected;
+    margin: 0px 0px 12px 0px;
+}
+
+prompt {
+    enabled: true;
+    text-color: @accent;
+    font: "SF Pro Display 14";
+}
+
+entry {
+    placeholder: "Search...";
+    placeholder-color: #6c7086;
+    text-color: @fg;
+    cursor: text;
+    font: "SF Pro Display 14";
+}
+
+listview {
+    lines: 8;
+    columns: 1;
+    fixed-height: false;
+    spacing: 4px;
+    scrollbar: false;
+    background-color: transparent;
+}
+
+element {
+    padding: 10px 12px;
+    border-radius: 8px;
+    background-color: transparent;
+    text-color: @fg;
+    spacing: 12px;
+}
+
+element selected.normal {
+    background-color: @selected;
+    text-color: @accent;
+}
+
+element-icon {
+    size: 24px;
+    background-color: transparent;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    vertical-align: 0.5;
+}
+
+element selected.normal element-text {
+    text-color: @fg;
+}
+
+/* Hover effect */
+element normal.normal {
+    background-color: transparent;
+    text-color: @fg-alt;
+}
+
+element alternate.normal {
+    background-color: transparent;
+    text-color: @fg-alt;
+}
+
+/* Remove mode switcher */
+mode-switcher {
+    enabled: false;
+}
+
+message {
+    padding: 10px;
+    border-radius: 8px;
+    background-color: @selected;
+}
+
+textbox {
+    text-color: @fg;
+    background-color: transparent;
+}

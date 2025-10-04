@@ -20,15 +20,16 @@
 
     # nix-gaming.url = "github:fufexan/nix-gaming";
 
-    # hyprland = {
-    # type = "git";
-    # url = "https://github.com/hyprwm/Hyprland";
-    # submodules = true;
-    # };
-    # hyprland-plugins = {
-    #   url = "github:hyprwm/hyprland-plugins";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
+    hyprland = {
+        type = "git";
+        url = "https://github.com/hyprwm/Hyprland";
+        submodules = true;
+    };
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+
     catppuccin-bat = {
         url = "github:catppuccin/bat";
         flake = false;
@@ -71,7 +72,7 @@
 
   };
 
-  outputs = { self,ghostty,caelestia-cli,caelestia-shell,nix-ld,nixpkgs,home-manager, ... }@inputs:
+  outputs = { self,ghostty,hyprland,hyprland-plugins, caelestia-cli,caelestia-shell,nix-ld,nixpkgs,home-manager, ... }@inputs:
     let
       username = "aabid";
       system = "x86_64-linux";
