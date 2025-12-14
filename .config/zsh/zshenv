@@ -1,0 +1,17 @@
+# XDG base dirs
+export ZDOTDIR="$HOME/.config/zsh"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+
+# History
+export HISTFILE="$XDG_DATA_HOME/zsh/history"
+export HISTSIZE=50000
+export SAVEHIST=50000
+
+# Default editor
+export EDITOR=nvim
+export VISUAL=nvim
+
+# Path
+export PATH="$HOME/.local/bin:$PATH"
