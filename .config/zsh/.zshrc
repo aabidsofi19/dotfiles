@@ -43,6 +43,13 @@ if [[ -r /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.
   source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
+#----------------------
+# starship
+#----------------------
+if command -v starship >/dev/null; then
+  eval "$(starship init zsh)"
+fi
+
 # --------------------------------
 # zoxide (smart cd)
 # --------------------------------

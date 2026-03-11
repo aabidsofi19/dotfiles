@@ -2,3 +2,6 @@
 if [[ -o interactive ]]; then
   eval "$(starship init zsh)"
 fi
+
+
+alias ssh-bastion= ssh -i  $HOME/.ssh/bastion-ssh-key-2025-10-28.key ubuntu@158.101.123.8
