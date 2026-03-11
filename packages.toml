@@ -1,0 +1,93 @@
+# packages.toml
+# Canonical list of programs needed across dev environments.
+# Used by scripts/install-{fedora,macos}.sh
+#
+# Format: each section maps a category to a list of packages.
+# "pkg" is the common/default name. Per-OS overrides use "dnf" or "brew" keys
+# when the package name differs, or "skip = true" to omit on that OS.
+
+[core]
+description = "Shell, editor, version control"
+packages = [
+  { pkg = "zsh" },
+  { pkg = "fish" },
+  { pkg = "neovim", dnf = "neovim", brew = "neovim" },
+  { pkg = "git" },
+  { pkg = "stow" },
+  { pkg = "curl" },
+  { pkg = "wget" },
+]
+
+[terminal]
+description = "Terminal emulator and prompt"
+packages = [
+  { pkg = "ghostty", dnf = "ghostty", brew = "ghostty" },
+  { pkg = "starship" },
+]
+
+[cli_tools]
+description = "Modern CLI replacements and utilities"
+packages = [
+  { pkg = "ripgrep" },
+  { pkg = "fd-find", dnf = "fd-find", brew = "fd" },
+  { pkg = "bat" },
+  { pkg = "eza" },
+  { pkg = "fzf" },
+  { pkg = "zoxide" },
+  { pkg = "jq" },
+  { pkg = "btop" },
+  { pkg = "tree" },
+  { pkg = "tmux" },
+]
+
+[dev_languages]
+description = "Compilers, runtimes, toolchains"
+packages = [
+  { pkg = "golang", dnf = "golang", brew = "go" },
+  { pkg = "zig", dnf = "zig", brew = "zig" },
+  { pkg = "gcc", dnf = "gcc", brew = "gcc" },
+  { pkg = "clang", dnf = "clang", brew = "llvm" },
+  { pkg = "make" },
+  { pkg = "cmake" },
+]
+
+[lsp_and_formatters]
+description = "Language servers and formatters used by Neovim"
+packages = [
+  { pkg = "lua-language-server", dnf = "lua-language-server", brew = "lua-language-server" },
+  { pkg = "stylua", brew = "stylua", dnf_skip = true, note = "install via cargo or mason" },
+  { pkg = "prettierd", dnf_skip = true, brew_skip = true, note = "install via npm: npm i -g @fsouza/prettierd" },
+  { pkg = "goimports", dnf_skip = true, brew_skip = true, note = "install via go: go install golang.org/x/tools/cmd/goimports@latest" },
+  { pkg = "gofumpt", dnf_skip = true, brew_skip = true, note = "install via go: go install mvdan.cc/gofumpt@latest" },
+]
+
+[containers]
+description = "Container and orchestration tools"
+packages = [
+  { pkg = "podman", brew_skip = true },
+  { pkg = "kubectl", dnf = "kubernetes-client", brew = "kubectl" },
+]
+
+[fonts]
+description = "Managed via stow fonts package, no install needed"
+note = "Berkeley Mono + Zed Mono are in fonts/.local/share/fonts/"
+
+[zsh_plugins]
+description = "Zsh plugins (OS package managed)"
+packages = [
+  { pkg = "zsh-autosuggestions", dnf = "zsh-autosuggestions", brew = "zsh-autosuggestions" },
+  { pkg = "zsh-syntax-highlighting", dnf = "zsh-syntax-highlighting", brew = "zsh-syntax-highlighting" },
+]
+
+[npm_globals]
+description = "Global npm packages (installed separately via npm/bun)"
+packages = [
+  { pkg = "@fsouza/prettierd" },
+]
+
+[go_tools]
+description = "Go tools (installed separately via go install)"
+packages = [
+  { pkg = "golang.org/x/tools/cmd/goimports@latest" },
+  { pkg = "mvdan.cc/gofumpt@latest" },
+]
