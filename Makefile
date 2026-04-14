@@ -14,7 +14,7 @@ TARGET   := $(HOME)
 
 # Every top-level directory that contains a stow-ready tree.
 # Excludes scripts/, .git/, and any non-package dirs.
-PACKAGES := bat btop fish fonts ghostty git nvim starship zsh
+PACKAGES := bat btop fish fonts fuzzel ghostty git mako niri nvim starship swaybg swaylock wallpaper waybar zsh
 
 .PHONY: help stow unstow restow install install-fedora install-macos dry-run $(addprefix stow-,$(PACKAGES)) $(addprefix unstow-,$(PACKAGES))
 

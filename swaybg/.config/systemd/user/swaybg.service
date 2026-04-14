@@ -1,0 +1,11 @@
+[Unit]
+Description=Set desktop wallpaper via swaybg
+PartOf=graphical-session.target
+After=graphical-session.target
+Requisite=graphical-session.target
+
+[Service]
+# Use the current wallpaper if available, fall back to solid color.
+# Run `wallpaper fetch` to download a wallpaper.
+ExecStart=/bin/sh -c 'if [ -e "%h/Pictures/wallpapers/current" ]; then exec /usr/bin/swaybg -m fill -i "%h/Pictures/wallpapers/current"; else exec /usr/bin/swaybg -c "#16161e"; fi'
+Restart=on-failure

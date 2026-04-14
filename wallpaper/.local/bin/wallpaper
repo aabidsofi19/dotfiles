@@ -1,0 +1,268 @@
+#!/usr/bin/env bash
+# wallpaper - fetch random wallpapers from Wallhaven and apply via swaybg
+set -euo pipefail
+
+# ── Config ──────────────────────────────────────────────────────────
+WALLPAPER_DIR="${HOME}/Pictures/wallpapers"
+CURRENT_LINK="${WALLPAPER_DIR}/current"
+MIN_RESOLUTION="1920x1080"
+API_URL="https://wallhaven.cc/api/v1/search"
+
+# Default search tags when no query is given.
+# The script picks one at random each run.
+TAGS=(
+  "landscape"
+  "nature"
+  "architecture"
+  "space"
+  "cyberpunk"
+  "mountains"
+  "ocean"
+  "forest"
+  "cityscape"
+  "minimal"
+)
+
+# ── Helpers ─────────────────────────────────────────────────────────
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+RESET='\033[0m'
+
+log()  { printf "${GREEN}[wallpaper]${RESET} %s\n" "$*"; }
+warn() { printf "${YELLOW}[wallpaper]${RESET} %s\n" "$*"; }
+err()  { printf "${RED}[wallpaper]${RESET} %s\n" "$*" >&2; }
+
+usage() {
+  cat <<EOF
+Usage: wallpaper [command]
+
+Commands:
+  fetch       Download a new random wallpaper and apply it (default)
+  apply       Re-apply the current wallpaper
+  history     List previously downloaded wallpapers
+  pick FILE   Set a specific image as wallpaper
+  clean       Remove all wallpapers except the current one
+  help        Show this message
+
+Options:
+  -q, --query TERM   Search for a specific theme (e.g. "mountains")
+  -n, --no-apply     Download only, don't apply
+EOF
+}
+
+require_cmd() {
+  for cmd in "$@"; do
+    if ! command -v "$cmd" >/dev/null 2>&1; then
+      err "Required command not found: $cmd"
+      exit 1
+    fi
+  done
+}
+
+# ── Core ────────────────────────────────────────────────────────────
+fetch_wallpaper() {
+  local query="${1:-}"
+  local no_apply="${2:-false}"
+
+  require_cmd curl jq
+
+  mkdir -p "$WALLPAPER_DIR"
+
+  local tag
+  if [[ -n "$query" ]]; then
+    tag="$query"
+  else
+    tag="${TAGS[$((RANDOM % ${#TAGS[@]}))]}"
+  fi
+
+  log "Fetching wallpaper (query: ${tag})..."
+
+  # Query Wallhaven API for a random wallpaper
+  # categories=1xx = General only, purity=1xx = SFW only
+  local api_response
+  api_response="$(curl -fsSL "${API_URL}?q=${tag}&sorting=random&atleast=${MIN_RESOLUTION}&categories=111&purity=100")"
+
+  # Extract a random image URL from the results
+  local image_url
+  image_url="$(printf '%s' "$api_response" | jq -r '.data[0].path // empty')"
+
+  if [[ -z "$image_url" ]]; then
+    err "No wallpapers found for query: ${tag}"
+    exit 1
+  fi
+
+  local timestamp
+  timestamp="$(date +%Y%m%d-%H%M%S)"
+
+  # Preserve the original file extension
+  local ext="${image_url##*.}"
+  [[ "$ext" =~ ^(jpg|jpeg|png|webp)$ ]] || ext="jpg"
+  local filename="wallpaper-${timestamp}.${ext}"
+  local filepath="${WALLPAPER_DIR}/${filename}"
+
+  log "Downloading: ${image_url}"
+
+  if ! curl -fsSL -o "$filepath" "$image_url"; then
+    err "Failed to download wallpaper"
+    rm -f "$filepath"
+    exit 1
+  fi
+
+  # Verify we got a real image (at least 10 KB)
+  local size
+  size="$(stat --printf='%s' "$filepath" 2>/dev/null || stat -f '%z' "$filepath" 2>/dev/null)"
+  if [[ "$size" -lt 10240 ]]; then
+    err "Downloaded file is too small (${size} bytes) - likely not a valid image"
+    rm -f "$filepath"
+    exit 1
+  fi
+
+  # Update the "current" symlink
+  ln -sf "$filepath" "$CURRENT_LINK"
+
+  log "Saved: ${filepath} ($(numfmt --to=iec "$size" 2>/dev/null || echo "${size} bytes"))"
+
+  if [[ "$no_apply" == "false" ]]; then
+    apply_wallpaper
+  fi
+}
+
+apply_wallpaper() {
+  if [[ ! -L "$CURRENT_LINK" && ! -f "$CURRENT_LINK" ]]; then
+    err "No current wallpaper set. Run 'wallpaper fetch' first."
+    exit 1
+  fi
+
+  local resolved
+  resolved="$(readlink -f "$CURRENT_LINK")"
+
+  require_cmd swaybg
+
+  log "Applying: ${resolved}"
+
+  # Kill any existing swaybg instances
+  pkill swaybg 2>/dev/null || true
+
+  # Small delay to let the old process exit
+  sleep 0.2
+
+  # Launch swaybg in the background, detached
+  swaybg -m fill -i "$resolved" &>/dev/null & disown
+
+  log "Done."
+}
+
+pick_wallpaper() {
+  local file="$1"
+
+  if [[ ! -f "$file" ]]; then
+    err "File not found: $file"
+    exit 1
+  fi
+
+  # Resolve to absolute path
+  file="$(readlink -f "$file")"
+
+  mkdir -p "$WALLPAPER_DIR"
+  ln -sf "$file" "$CURRENT_LINK"
+
+  apply_wallpaper
+}
+
+show_history() {
+  if [[ ! -d "$WALLPAPER_DIR" ]]; then
+    warn "No wallpapers directory found."
+    return
+  fi
+
+  local current=""
+  if [[ -L "$CURRENT_LINK" ]]; then
+    current="$(readlink -f "$CURRENT_LINK")"
+  fi
+
+  log "Wallpapers in ${WALLPAPER_DIR}:"
+  echo ""
+  for f in "$WALLPAPER_DIR"/wallpaper-*; do
+    [[ -f "$f" ]] || continue
+    local marker=""
+    if [[ "$(readlink -f "$f")" == "$current" ]]; then
+      marker=" <- current"
+    fi
+    local size
+    size="$(du -h "$f" | cut -f1)"
+    printf "  %s  %s%s\n" "$size" "$(basename "$f")" "$marker"
+  done
+}
+
+clean_wallpapers() {
+  if [[ ! -d "$WALLPAPER_DIR" ]]; then
+    warn "No wallpapers directory found."
+    return
+  fi
+
+  local current=""
+  if [[ -L "$CURRENT_LINK" ]]; then
+    current="$(readlink -f "$CURRENT_LINK")"
+  fi
+
+  local count=0
+  for f in "$WALLPAPER_DIR"/wallpaper-*; do
+    [[ -f "$f" ]] || continue
+    if [[ "$(readlink -f "$f")" != "$current" ]]; then
+      rm "$f"
+      count=$((count + 1))
+    fi
+  done
+
+  log "Cleaned ${count} old wallpaper(s)."
+}
+
+# ── Main ────────────────────────────────────────────────────────────
+main() {
+  local cmd="fetch"
+  local query=""
+  local no_apply="false"
+
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      fetch|apply|history|pick|clean|help)
+        cmd="$1"
+        shift
+        ;;
+      -q|--query)
+        query="$2"
+        shift 2
+        ;;
+      -n|--no-apply)
+        no_apply="true"
+        shift
+        ;;
+      -h|--help)
+        cmd="help"
+        shift
+        ;;
+      *)
+        # If command is pick, treat next arg as the file
+        if [[ "$cmd" == "pick" ]]; then
+          pick_wallpaper "$1"
+          return
+        fi
+        err "Unknown argument: $1"
+        usage
+        exit 1
+        ;;
+    esac
+  done
+
+  case "$cmd" in
+    fetch)   fetch_wallpaper "$query" "$no_apply" ;;
+    apply)   apply_wallpaper ;;
+    history) show_history ;;
+    pick)    err "Usage: wallpaper pick FILE"; exit 1 ;;
+    clean)   clean_wallpapers ;;
+    help)    usage ;;
+  esac
+}
+
+main "$@"

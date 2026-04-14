@@ -89,7 +89,7 @@ vim.g.loaded_node_provider = 0
 
 -- Filetype indentation
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "javascript", "typescript", "typescriptreact", "javascriptreact", "json", "jsonc", "lua", "html", "css", "scss" },
+  pattern = { "javascript", "typescript", "typescriptreact", "javascriptreact", "json", "jsonc", "lua", "html", "css", "scss", "haskell" },
   callback = function()
     vim.opt_local.tabstop = 2
     vim.opt_local.shiftwidth = 2

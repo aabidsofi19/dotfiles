@@ -7,5 +7,5 @@ require("core.options")
 require("core.keymaps")
 require("core.autocmds")
 
--- Plugins
+-- Plugins (vim.pack + configs)
 require("plugins")

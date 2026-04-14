@@ -2,11 +2,15 @@
 # scripts/install-fedora.sh -- Idempotent package installer for Fedora/DNF
 # Usage: ./scripts/install-fedora.sh [--dry-run]
 #
+# Reads packages.toml as the single source of truth.
 # Safe to run multiple times. DNF skips already-installed packages.
 # Does NOT run anything as root without sudo, never force-removes, never
 # touches system configs outside of package installation.
 
 set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/parse-packages.sh"
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -33,61 +37,16 @@ if [[ "$DRY_RUN" == true ]]; then
     warn "DRY RUN -- no packages will be installed"
 fi
 
-# ── DNF packages ────────────────────────────────────────────────────
-# Mirrors packages.toml. Only list packages available in Fedora repos
-# (or COPR repos enabled below).
-
-DNF_PACKAGES=(
-    # core
-    zsh
-    fish
-    neovim
-    git
-    stow
-    curl
-    wget
-
-    # terminal
-    ghostty
-    starship
-
-    # cli tools
-    ripgrep
-    fd-find
-    bat
-    eza
-    fzf
-    zoxide
-    jq
-    btop
-    tree
-    tmux
-
-    # dev languages
-    golang
-    zig
-    gcc
-    clang
-    make
-    cmake
-
-    # LSP / formatters
-    lua-language-server
-
-    # containers
-    podman
-    kubernetes-client
-
-    # zsh plugins
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-)
+# ── DNF packages (parsed from packages.toml) ───────────────────────
 
 install_dnf_packages() {
     log "Installing DNF packages..."
 
+    local all_packages
+    mapfile -t all_packages < <(get_os_packages dnf)
+
     local to_install=()
-    for pkg in "${DNF_PACKAGES[@]}"; do
+    for pkg in "${all_packages[@]}"; do
         if rpm -q "$pkg" &>/dev/null; then
             continue
         fi
@@ -108,7 +67,7 @@ install_dnf_packages() {
     sudo dnf install -y "${to_install[@]}"
 }
 
-# ── Go tools ────────────────────────────────────────────────────────
+# ── Go tools (parsed from packages.toml [go] section) ──────────────
 
 install_go_tools() {
     if ! command_exists go; then
@@ -118,12 +77,10 @@ install_go_tools() {
 
     log "Installing Go tools..."
 
-    local go_tools=(
-        "golang.org/x/tools/cmd/goimports@latest"
-        "mvdan.cc/gofumpt@latest"
-    )
+    local tools
+    mapfile -t tools < <(get_section_packages go)
 
-    for tool in "${go_tools[@]}"; do
+    for tool in "${tools[@]}"; do
         if [[ "$DRY_RUN" == true ]]; then
             log "  Would install: $tool"
         else
@@ -133,7 +90,7 @@ install_go_tools() {
     done
 }
 
-# ── npm globals ─────────────────────────────────────────────────────
+# ── npm globals (parsed from packages.toml [npm] section) ──────────
 
 install_npm_globals() {
     local npm_cmd=""
@@ -148,11 +105,10 @@ install_npm_globals() {
 
     log "Installing npm globals via $npm_cmd..."
 
-    local npm_packages=(
-        "@fsouza/prettierd"
-    )
+    local packages
+    mapfile -t packages < <(get_section_packages npm)
 
-    for pkg in "${npm_packages[@]}"; do
+    for pkg in "${packages[@]}"; do
         if [[ "$DRY_RUN" == true ]]; then
             log "  Would install: $pkg"
         else
@@ -162,25 +118,30 @@ install_npm_globals() {
     done
 }
 
-# ── Cargo tools (stylua) ───────────────────────────────────────────
+# ── Cargo tools (parsed from packages.toml [cargo] section) ────────
 
 install_cargo_tools() {
     if ! command_exists cargo; then
-        warn "Cargo not found. Skipping stylua."
+        warn "Cargo not found. Skipping cargo tools."
         warn "Install Rust: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
         return
     fi
 
     log "Installing Cargo tools..."
 
-    if command_exists stylua; then
-        log "  stylua already installed."
-    elif [[ "$DRY_RUN" == true ]]; then
-        log "  Would install: stylua"
-    else
-        log "  Installing: stylua"
-        cargo install stylua || warn "Failed to install stylua"
-    fi
+    local tools
+    mapfile -t tools < <(get_section_packages cargo)
+
+    for tool in "${tools[@]}"; do
+        if command_exists "$tool"; then
+            log "  $tool already installed."
+        elif [[ "$DRY_RUN" == true ]]; then
+            log "  Would install: $tool"
+        else
+            log "  Installing: $tool"
+            cargo install "$tool" || warn "Failed to install $tool"
+        fi
+    done
 }
 
 # ── Font cache ──────────────────────────────────────────────────────
@@ -221,6 +182,7 @@ set_default_shell() {
 main() {
     log "Fedora package installer"
     log "========================"
+    log "Reading from: $PACKAGES_FILE"
     echo
 
     install_dnf_packages

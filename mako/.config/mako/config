@@ -1,0 +1,21 @@
+# ── Mako — Tokyo Night ────────────────────────────────────────────
+
+font=Berkeley Mono 12
+background-color=#16161eee
+text-color=#c0caf5
+border-color=#7aa2f7
+border-size=2
+border-radius=8
+padding=12
+margin=8
+default-timeout=5000
+max-visible=3
+layer=overlay
+anchor=top-right
+
+[urgency=low]
+border-color=#414868
+
+[urgency=high]
+border-color=#f7768e
+default-timeout=10000

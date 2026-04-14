@@ -2,10 +2,14 @@
 # scripts/install-macos.sh -- Idempotent package installer for macOS/Homebrew
 # Usage: ./scripts/install-macos.sh [--dry-run]
 #
+# Reads packages.toml as the single source of truth.
 # Safe to run multiple times. Homebrew skips already-installed packages.
 # Does NOT run anything as root (Homebrew refuses root anyway).
 
 set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/parse-packages.sh"
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -48,60 +52,16 @@ install_homebrew() {
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 }
 
-# ── Brew packages ───────────────────────────────────────────────────
-# Mirrors packages.toml with macOS/brew names.
-
-BREW_PACKAGES=(
-    # core
-    zsh
-    fish
-    neovim
-    git
-    stow
-    curl
-    wget
-
-    # terminal
-    ghostty
-    starship
-
-    # cli tools
-    ripgrep
-    fd
-    bat
-    eza
-    fzf
-    zoxide
-    jq
-    btop
-    tree
-    tmux
-
-    # dev languages
-    go
-    zig
-    gcc
-    llvm
-    make
-    cmake
-
-    # LSP / formatters
-    lua-language-server
-    stylua
-
-    # containers
-    kubectl
-
-    # zsh plugins
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-)
+# ── Brew packages (parsed from packages.toml) ──────────────────────
 
 install_brew_packages() {
     log "Installing Homebrew packages..."
 
+    local all_packages
+    mapfile -t all_packages < <(get_os_packages brew)
+
     local to_install=()
-    for pkg in "${BREW_PACKAGES[@]}"; do
+    for pkg in "${all_packages[@]}"; do
         if brew list "$pkg" &>/dev/null; then
             continue
         fi
@@ -122,7 +82,7 @@ install_brew_packages() {
     brew install "${to_install[@]}"
 }
 
-# ── Go tools ────────────────────────────────────────────────────────
+# ── Go tools (parsed from packages.toml [go] section) ──────────────
 
 install_go_tools() {
     if ! command_exists go; then
@@ -132,12 +92,10 @@ install_go_tools() {
 
     log "Installing Go tools..."
 
-    local go_tools=(
-        "golang.org/x/tools/cmd/goimports@latest"
-        "mvdan.cc/gofumpt@latest"
-    )
+    local tools
+    mapfile -t tools < <(get_section_packages go)
 
-    for tool in "${go_tools[@]}"; do
+    for tool in "${tools[@]}"; do
         if [[ "$DRY_RUN" == true ]]; then
             log "  Would install: $tool"
         else
@@ -147,7 +105,7 @@ install_go_tools() {
     done
 }
 
-# ── npm globals ─────────────────────────────────────────────────────
+# ── npm globals (parsed from packages.toml [npm] section) ──────────
 
 install_npm_globals() {
     local npm_cmd=""
@@ -162,11 +120,10 @@ install_npm_globals() {
 
     log "Installing npm globals via $npm_cmd..."
 
-    local npm_packages=(
-        "@fsouza/prettierd"
-    )
+    local packages
+    mapfile -t packages < <(get_section_packages npm)
 
-    for pkg in "${npm_packages[@]}"; do
+    for pkg in "${packages[@]}"; do
         if [[ "$DRY_RUN" == true ]]; then
             log "  Would install: $pkg"
         else
@@ -219,6 +176,7 @@ set_default_shell() {
 main() {
     log "macOS package installer"
     log "======================="
+    log "Reading from: $PACKAGES_FILE"
     echo
 
     install_homebrew

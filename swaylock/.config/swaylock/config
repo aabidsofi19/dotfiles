@@ -1,0 +1,49 @@
+# ── Swaylock — Tokyo Night ─────────────────────────────────────────
+
+daemonize
+ignore-empty-password
+show-failed-attempts
+
+# Colors
+color=16161e
+
+# Inside (idle)
+inside-color=16161e00
+inside-clear-color=16161e00
+inside-ver-color=16161e00
+inside-wrong-color=16161e00
+
+# Ring
+ring-color=414868
+ring-clear-color=e0af68
+ring-ver-color=7aa2f7
+ring-wrong-color=f7768e
+
+# Line (between ring and inside)
+line-color=00000000
+line-clear-color=00000000
+line-ver-color=00000000
+line-wrong-color=00000000
+
+# Key highlight
+key-hl-color=7aa2f7
+
+# Backspace highlight
+bs-hl-color=f7768e
+
+# Separator
+separator-color=00000000
+
+# Text
+text-color=c0caf5
+text-clear-color=e0af68
+text-ver-color=7aa2f7
+text-wrong-color=f7768e
+
+# Indicator
+indicator-radius=80
+indicator-thickness=8
+
+# Font
+font=Berkeley Mono
+font-size=14

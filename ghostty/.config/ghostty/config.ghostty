@@ -3,7 +3,8 @@
 # -----------------------------
 font-family = "Berkeley Mono"
 font-size = 13.5
-font-feature = ["liga", "calt"]
+font-feature = liga
+font-feature = calt
 
 # -----------------------------
 # Window & Rendering

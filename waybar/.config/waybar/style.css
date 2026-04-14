@@ -1,0 +1,84 @@
+/* ── Waybar — Tokyo Night ──────────────────────────────────────── */
+/* Matches: bg #16161e, fg #c0caf5, blue #7aa2f7, muted #414868   */
+
+* {
+    font-family: "Berkeley Mono", monospace;
+    font-size: 13px;
+    min-height: 0;
+    border: none;
+    border-radius: 0;
+}
+
+window#waybar {
+    background-color: #16161e;
+    color: #c0caf5;
+}
+
+/* ── Modules ──────────────────────────────────────────────────── */
+
+#workspaces,
+#clock,
+#battery,
+#network,
+#pulseaudio,
+#tray {
+    padding: 0 10px;
+}
+
+/* Workspace buttons */
+#workspaces button {
+    padding: 0 4px;
+    color: #414868;
+    background: transparent;
+    border: none;
+}
+
+#workspaces button.active {
+    color: #7aa2f7;
+}
+
+#workspaces button:hover {
+    background: transparent;
+    color: #c0caf5;
+}
+
+/* Clock */
+#clock {
+    color: #c0caf5;
+}
+
+/* Battery */
+#battery {
+    color: #9ece6a;
+}
+
+#battery.warning {
+    color: #e0af68;
+}
+
+#battery.critical {
+    color: #f7768e;
+}
+
+/* Network */
+#network {
+    color: #7dcfff;
+}
+
+#network.disconnected {
+    color: #414868;
+}
+
+/* Audio */
+#pulseaudio {
+    color: #bb9af7;
+}
+
+#pulseaudio.muted {
+    color: #414868;
+}
+
+/* Tray */
+#tray {
+    padding: 0 6px;
+}
